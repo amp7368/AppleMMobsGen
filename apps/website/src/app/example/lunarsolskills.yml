@@ -1,0 +1,1731 @@
+minotaurInit:
+    Skills:
+        - CancelEvent
+        - randomskill{s=minotaurAttack1,minotaurAttack2,minotaurAttack3} @self
+
+minotaurAttack1:
+    Cooldown: 2.0
+    Skills:
+        - state{s=attack1;li=3;lo=2} @self
+        - delay 20
+        - totem{ch=3;onStart=minotaurAttackDamage;int=1;hR=3;md=1} @Target
+        - effect:sound{s=entity.player.attack.sweep;v=0.5;p=0.8}
+
+minotaurAttack2:
+    Cooldown: 2.0
+    Skills:
+        - state{s=attack2;li=3;lo=2} @self
+        - delay 20
+        - totem{ch=3;onStart=minotaurAttackDamage;int=1;hR=3;md=1} @Target
+        - effect:sound{s=entity.player.attack.sweep;v=0.5;p=0.8}
+
+minotaurAttack3:
+    Cooldown: 2.0
+    Skills:
+        - state{s=attack3;li=3;lo=2} @self
+        - delay 20
+        - totem{ch=3;onStart=minotaurAttackDamage;int=1;hR=3;md=1} @Target
+        - effect:sound{s=entity.player.attack.sweep;v=0.5;p=0.8}
+
+minotaurAttackDamage:
+    Skills:
+        - damage{amount=3} @target
+        - effect:particles{p=reddust;color=#964B00;amount=2;hS=.25;vS=1;speed=.01;size=5}
+        - effect:particles{particle=block;m=redstone_block;;amount=15;hS=.25;vS=1;speed=.01;size=5}
+
+vikingInit:
+    Skills:
+        - CancelEvent
+        - randomskill{s=vikingAttack1,vikingAttack2} @self
+
+vikingAttack1:
+    Cooldown: 2.0
+    Skills:
+        - state{s=attack1;li=3;lo=2} @self
+        - delay 20
+        - totem{ch=3;onStart=vikingAttackDamage;int=1;hR=3;md=1} @Forward{f=0.5}
+        - effect:sound{s=entity.player.attack.sweep;v=0.5;p=0.8}
+
+vikingAttack2:
+    Cooldown: 2.0
+    Skills:
+        - state{s=attack2;li=3;lo=2} @self
+        - delay 20
+        - totem{ch=3;onStart=vikingAttackDamage;int=1;hR=3;md=1} @Forward{f=0.5}
+        - effect:sound{s=entity.player.attack.sweep;v=0.5;p=0.8}
+
+vikingAttackDamage:
+    Skills:
+        - damage{amount=3} @target
+
+vikingDeath:
+    Skills:
+        - state{s=death;li=3;lo=2} @self
+        - delay 60
+        - remove @self
+
+vikingHit:
+    Skills:
+        - randomskill{s=vikingHit1,vikingHit2} @self
+
+vikingHit1:
+    Skills:
+        - state{s=hurt1;li=3;lo=2} @self
+        - setspeed{speed=0;type=walking} @self
+        - delay 10
+        - setspeed{speed=1.23;type=walking} @self
+
+vikingHit2:
+    Skills:
+        - state{s=hurt2;li=3;lo=2} @self
+        - setspeed{speed=0;type=walking} @self
+        - delay 10
+        - setspeed{speed=1.23;type=walking} @self
+
+egyptianraiderInit:
+    Skills:
+        - CancelEvent
+        - randomskill{s=egyptianraiderAttack1,egyptianraiderAttack2} @self
+
+egyptianraiderAttack1:
+    Cooldown: 2.0
+    Skills:
+        - state{s=attack1;li=3;lo=2} @self
+        - delay 20
+        - totem{ch=3;onStart=egyptianraiderAttackDamage;int=1;hR=3;md=1} @Forward{f=0.5}
+        - effect:sound{s=entity.player.attack.sweep;v=0.5;p=0.8}
+
+egyptianraiderAttack2:
+    Cooldown: 2.0
+    Skills:
+        - state{s=attack2;li=3;lo=2} @self
+        - delay 20
+        - totem{ch=3;onStart=egyptianraiderAttackDamage;int=1;hR=3;md=1} @Forward{f=0.5}
+        - effect:sound{s=entity.player.attack.sweep;v=0.5;p=0.8}
+
+egyptianraiderAttackDamage:
+    Skills:
+        - damage{amount=3} @target
+
+egyptianraiderDeath:
+    Skills:
+        - state{s=death;li=3;lo=2} @self
+        - delay 60
+        - remove @self
+
+egyptianraiderHit:
+    Skills:
+        - randomskill{s=vikingHit1,vikingHit2} @self
+
+egyptianraiderHit1:
+    Skills:
+        - state{s=hurt1;li=3;lo=2} @self
+        - setspeed{speed=0;type=walking} @self
+        - delay 10
+        - setspeed{speed=1.23;type=walking} @self
+
+egyptianraiderHit2:
+    Skills:
+        - state{s=hurt2;li=3;lo=2} @self
+        - setspeed{speed=0;type=walking} @self
+        - delay 10
+        - setspeed{speed=1.23;type=walking} @self
+
+playercheck:
+    Conditions:
+        - playerwithin{d=10} true
+    Skills:
+        - setstance{stance=alone;li=3;lo=3} @self
+        - setspeed{speed=1.23;type=walking} @self
+
+mobAlone:
+    Conditions:
+        - stance{s=alone} true
+    Skills:
+        - state{s=alone} @self
+
+IdleStance:
+    Conditions:
+        - stance{s=alone} true
+        - playerwithin{d=10} false
+    Skills:
+        - state{s=alone;r=false} @self
+        - state{s=idlestance;li=3;lo=3} @self
+        - setspeed{speed=0;type=walking} @self
+
+departedvikingInit:
+    Skills:
+        - CancelEvent
+        - randomskill{s=departedvikingAttack1} @self
+
+departedvikingAttack1:
+    Cooldown: 2.0
+    Skills:
+        - state{s=attack1;li=3;lo=2} @self
+        - delay 20
+        - totem{ch=3;onStart=departedvikingAttackDamage;int=1;hR=3;md=1} @Forward{f=0.5}
+        - effect:sound{s=entity.player.attack.sweep;v=0.5;p=0.8}
+
+departedvikingAttackDamage:
+    Skills:
+        - damage{amount=3} @target
+
+departedvikingDeath:
+    Skills:
+        - state{s=death;li=3;lo=2} @self
+        - delay 60
+        - remove @self
+
+departedvikingHit:
+    Skills:
+        - randomskill{s=departedvikingHit1} @self
+
+departedvikingHit1:
+    Skills:
+        - state{s=hurt1;li=3;lo=2} @self
+        - setspeed{speed=0;type=walking} @self
+        - delay 10
+        - setspeed{speed=1.23;type=walking} @self
+
+mummyInit:
+    Skills:
+        - CancelEvent
+        - randomskill{s=mummyAttack1} @self
+
+mummyAttack1:
+    Cooldown: 2.0
+    Skills:
+        - state{s=attack1;li=3;lo=2} @self
+        - delay 20
+        - totem{ch=3;onStart=mummyAttackDamage;int=1;hR=3;md=1} @Forward{f=0.5}
+        - effect:sound{s=entity.player.attack.sweep;v=0.5;p=0.8}
+
+mummyAttackDamage:
+    Skills:
+        - damage{amount=3} @target
+
+mummyDeath:
+    Skills:
+        - state{s=death;li=3;lo=2} @self
+        - delay 60
+        - remove @self
+
+mummyHit:
+    Skills:
+        - randomskill{s=mummyHit1} @self
+
+mummyHit1:
+    Skills:
+        - state{s=hurt1;li=3;lo=2} @self
+        - setspeed{speed=0;type=walking} @self
+        - delay 10
+        - setspeed{speed=1.23;type=walking} @self
+
+coyoteInit:
+    Skills:
+        - CancelEvent
+        - randomskill{s=coyoteAttack1} @self
+
+coyoteAttack1:
+    Cooldown: 2.0
+    Skills:
+        - state{s=attack;li=3;lo=2} @self
+        - delay 10
+        - totem{ch=3;onStart=coyoteAttackDamage;int=1;hR=3;md=1} @Forward{f=0.5}
+        - effect:sound{s=entity.player.attack.sweep;v=0.5;p=0.8}
+
+coyoteAttackDamage:
+    Skills:
+        - damage{amount=3} @target
+
+coyoteDeath:
+    Skills:
+        - state{s=death;li=3;lo=2} @self
+        - delay 60
+        - remove @self
+
+coyoteHit:
+    Skills:
+        - randomskill{s=coyoteHit1} @self
+
+coyoteHit1:
+    Skills:
+        - state{s=injured;li=3;lo=2} @self
+        - setspeed{speed=0;type=walking} @self
+        - delay 10
+        - setspeed{speed=1.23;type=walking} @self
+
+coyoteIdleStance:
+    Conditions:
+        - stance{s=alone} true
+        - playerwithin{d=10} false
+    Skills:
+        - state{s=alone;r=false} @self
+        - state{s=idlestance;li=3;lo=3} @self
+        - setspeed{speed=0;type=walking} @self
+
+elephantInit:
+    Skills:
+        - CancelEvent
+        - randomskill{s=elephantAttack1} @self
+
+elephantAttack1:
+    Cooldown: 2.0
+    Skills:
+        - state{s=attack;li=3;lo=2} @self
+        - delay 20
+        - totem{ch=3;onStart=elephantAttackDamage;int=1;hR=3;md=1} @Forward{f=0.5}
+        - effect:sound{s=entity.player.attack.sweep;v=0.5;p=0.8}
+
+elephantAttackDamage:
+    Skills:
+        - damage{amount=3} @target
+
+elephantDeath:
+    Skills:
+        - state{s=death;li=3;lo=2} @self
+        - delay 60
+        - remove @self
+
+elephantHit:
+    Skills:
+        - randomskill{s=elephantHit1} @self
+
+elephantHit1:
+    Skills:
+        - state{s=injured;li=3;lo=2} @self
+        - setspeed{speed=0;type=walking} @self
+        - delay 10
+        - setspeed{speed=1.23;type=walking} @self
+
+timberwolfInit:
+    Skills:
+        - CancelEvent
+        - randomskill{s=timberwolfAttack1} @self
+
+timberwolfAttack1:
+    Cooldown: 2.0
+    Skills:
+        - state{s=attack;li=3;lo=2} @self
+        - delay 10
+        - totem{ch=3;onStart=timberwolfAttackDamage;int=1;hR=3;md=1} @Forward{f=0.5}
+        - effect:sound{s=entity.player.attack.sweep;v=0.5;p=0.8}
+
+timberwolfAttackDamage:
+    Skills:
+        - damage{amount=3} @target
+
+timberwolfDeath:
+    Skills:
+        - state{s=death;li=3;lo=2} @self
+        - delay 60
+        - remove @self
+
+timberwolfHit:
+    Skills:
+        - randomskill{s=timberwolfHit1} @self
+
+timberwolfHit1:
+    Skills:
+        - state{s=injured;li=3;lo=2} @self
+        - setspeed{speed=0;type=walking} @self
+        - delay 10
+        - setspeed{speed=1.83;type=walking} @self
+
+timberwolfIdleStance:
+    Conditions:
+        - stance{s=alone} true
+        - playerwithin{d=10} false
+    Skills:
+        - state{s=alone;r=false} @self
+        - state{s=idlestance;li=3;lo=3} @self
+        - setspeed{speed=0;type=walking} @self
+
+redpandaInit:
+    Skills:
+        - CancelEvent
+        - randomskill{s=redpandaAttack1} @self
+
+redpandaAttack1:
+    Cooldown: 2.0
+    Skills:
+        - state{s=attack;li=3;lo=2} @self
+        - setspeed{speed=0;type=walking} @self
+        - delay 35
+        - setspeed{speed=1.23;type=walking} @self
+        - totem{ch=3;onStart=redpandaAttackDamage;int=1;hR=3;md=1} @Forward{f=0.5}
+        - effect:sound{s=entity.player.attack.sweep;v=0.5;p=0.8}
+
+redpandaAttackDamage:
+    Skills:
+        - damage{amount=0.5} @target
+
+redpandaDeath:
+    Skills:
+        - state{s=death;li=3;lo=2} @self
+        - delay 60
+        - remove @self
+
+redpandaHit:
+    Skills:
+        - randomskill{s=redpandaHit1} @self
+
+redpandaHit1:
+    Skills:
+        - state{s=injured;li=3;lo=2} @self
+        - setspeed{speed=0;type=walking} @self
+        - delay 10
+        - setspeed{speed=1.23;type=walking} @self
+
+redpandaIdleStance:
+    Conditions:
+        - stance{s=alone} true
+        - playerwithin{d=10} false
+    Skills:
+        - state{s=alone;r=false} @self
+        - state{s=idlestance;li=3;lo=3} @self
+        - setspeed{speed=0;type=walking} @self
+
+armadilloInit:
+    Skills:
+        - CancelEvent
+        - randomskill{s=armadilloAttack1} @self
+
+armadilloAttack1:
+    Cooldown: 2.0
+    Skills:
+        - state{s=attack1;li=3;lo=2} @self
+        - delay 20
+        - totem{ch=3;onStart=armadilloAttackDamage;int=1;hR=3;md=1} @Forward{f=0.5}
+        - effect:sound{s=entity.player.attack.sweep;v=0.5;p=0.8}
+
+armadilloAttackDamage:
+    Skills:
+        - damage{amount=3} @target
+
+armadilloDeath:
+    Skills:
+        - state{s=death;li=3;lo=2} @self
+        - delay 60
+        - remove @self
+
+armadilloHit:
+    Skills:
+        - randomskill{s=armadilloHit1} @self
+
+armadilloHit1:
+    Skills:
+        - state{s=injured;li=3;lo=2} @self
+        - setspeed{speed=0;type=walking} @self
+        - delay 10
+        - setspeed{speed=1.23;type=walking} @self
+
+BREATHdragon:
+    Conditions:
+        - targetwithin{d=24} true
+        - stance{s=flight} false
+    Skills:
+        - projectile{onTick=BREATHdragonTICK;oH=BREATHdragonDAMAGE;v=12;i=1;hR=4;vR=4;hnp=true;repeat=10;repeatInterval=1;sB=false;sE=false} @target
+        - message{m="&6&l<mob.name>&7 is using Dragon Breath!"} @PlayersInRadius{r=40}
+
+BREATHdragonTICK:
+    Skills:
+        - effect:particles{p=flame;amount=20;speed=0.01;hS=0.2;vS=0.2} @origin
+        - damage{a=4}
+        - ignite{ticks=20}
+
+BREATHdragonDAMAGE:
+    Skills:
+        - damage{a=4}
+        - ignite{ticks=20}
+
+dragonTAKEFLIGHT:
+    Cooldown: 1
+    Conditions:
+        - stance{s=flight} false
+        - outside true
+        - onground true
+    Skills:
+        - clearThreat{} @self
+        - runaitargetselector{target=clear}
+        - delay 15
+        - state{s=flight;li=0;lo=3} @self
+        - delay 20
+        - effect:particlering{particle=campfire_cosy_smoke;radius=2;points=32;amount=1;hS=.25;vS=0;size=3} @origin
+        - effect:particles{p=falling_dust;amount=2;speed=0;hS=.25;vS=.25;repeat=5;repeatinterval=2} @self
+        - sound{s=minecraft:entity.ender_dragon.flap;v=10;sc=HOSTILE} @self
+        - throw{velocity=12;velocityY=5} @PIR{r=6}
+        - potion{type=SLOW_FALLING;duration=20;level=4;p=false} @self
+        - lunge{velocity=0.5;velocityY=2;repeat=10;repeatInterval=1} @Forward{f=2.0;yoffset=2.0}
+        - delay 10
+        - setstance{stance=flight} @self
+
+LANDdragonRED:
+    Cooldown: 60
+    Conditions:
+        - altitude{a=>4} true
+    Skills:
+        - runaitargetselector{target=players}
+        - skill{s=WATERCHECKRED;repeat=5;repeatInterval=30} @BlocksInRadius{radius=3;radiusy=32;noise=0;shape=cube;onlyair=false;noair=true}
+
+GRIFFINTAKEFLIGHT:
+    Cooldown: 1
+    Conditions:
+        - stance{s=flight} false
+        - outside true
+        - onground true
+    Skills:
+        - clearThreat{} @self
+        - runaitargetselector{target=clear}
+        - delay 15
+        - state{s=flight;li=0;lo=3} @self
+        - delay 20
+        - effect:particlering{particle=campfire_cosy_smoke;radius=2;points=32;amount=1;hS=.25;vS=0;size=3} @origin
+        - effect:particles{p=falling_dust;amount=2;speed=0;hS=.25;vS=.25;repeat=5;repeatinterval=2} @self
+        - sound{s=minecraft:entity.ender_dragon.flap;v=10;sc=HOSTILE} @self
+        - throw{velocity=12;velocityY=5} @PIR{r=6}
+        - potion{type=SLOW_FALLING;duration=20;level=4;p=false} @self
+        - lunge{velocity=0.5;velocityY=2;repeat=10;repeatInterval=1} @Forward{f=2.0;yoffset=2.0}
+        - delay 10
+        - setstance{stance=flight} @self
+
+LANDGRIFFIN:
+    Cooldown: 60
+    Conditions:
+        - altitude{a=>4} true
+    Skills:
+        - runaitargetselector{target=players}
+        - skill{s=WATERCHECKGRIFFIN;repeat=5;repeatInterval=30} @BlocksInRadius{radius=3;radiusy=32;noise=0;shape=cube;onlyair=false;noair=true}
+
+WATERCHECKGRIFFIN:
+    Conditions:
+        - onground false
+    TargetConditions:
+        - blocktype{type=STATIONARY_WATER} false
+    Skills:
+        - potion{type=SLOW_FALLING;duration=40;level=4;p=false} @self
+        - setstance{stance=land} @self
+        - state{s=glide;r=true} @self
+        - state{s=flap;li=2;lo=3} @self
+        - delay 20
+        - lunge{velocity=0.25;velocityY=1} @ModelPart{m=griffin;p=bone;offset=LOCAL;z=6;x=0}
+        - sound{s=minecraft:entity.ender_dragon.flap;v=10} @self
+
+LANDdragonBLUE:
+    Cooldown: 60
+    Conditions:
+        - altitude{a=>4} true
+    Skills:
+        - runaitargetselector{target=players}
+        - skill{s=WATERCHECKBLUE;repeat=5;repeatInterval=30} @BlocksInRadius{radius=3;radiusy=32;noise=0;shape=cube;onlyair=false;noair=true}
+
+LANDdragonBROWN:
+    Cooldown: 60
+    Conditions:
+        - altitude{a=>4} true
+    Skills:
+        - runaitargetselector{target=players}
+        - skill{s=WATERCHECKBROWN;repeat=5;repeatInterval=30} @BlocksInRadius{radius=3;radiusy=32;noise=0;shape=cube;onlyair=false;noair=true}
+
+LANDdragonNORMAL:
+    Cooldown: 60
+    Conditions:
+        - altitude{a=>4} true
+    Skills:
+        - runaitargetselector{target=players}
+        - skill{s=WATERCHECKNORMAL;repeat=5;repeatInterval=30} @BlocksInRadius{radius=3;radiusy=32;noise=0;shape=cube;onlyair=false;noair=true}
+
+LANDdragonWHITE:
+    Cooldown: 60
+    Conditions:
+        - altitude{a=>4} true
+    Skills:
+        - runaitargetselector{target=players}
+        - skill{s=WATERCHECKWHITE;repeat=5;repeatInterval=30} @BlocksInRadius{radius=3;radiusy=32;noise=0;shape=cube;onlyair=false;noair=true}
+
+LANDdragonICE:
+    Cooldown: 60
+    Conditions:
+        - altitude{a=>4} true
+    Skills:
+        - runaitargetselector{target=players}
+        - skill{s=WATERCHECKICE;repeat=5;repeatInterval=30} @BlocksInRadius{radius=3;radiusy=32;noise=0;shape=cube;onlyair=false;noair=true}
+
+WATERCHECKRED:
+    Conditions:
+        - onground false
+    TargetConditions:
+        - blocktype{type=STATIONARY_WATER} false
+    Skills:
+        - potion{type=SLOW_FALLING;duration=40;level=4;p=false} @self
+        - setstance{stance=land} @self
+        - state{s=glide;r=true} @self
+        - state{s=land;li=2;lo=3} @self
+        - delay 20
+        - lunge{velocity=0.25;velocityY=1} @ModelPart{m=reddragon;p=bone;offset=LOCAL;z=6;x=0}
+        - sound{s=minecraft:entity.ender_dragon.flap;v=10} @self
+
+WATERCHECKBLUE:
+    Conditions:
+        - onground false
+    TargetConditions:
+        - blocktype{type=STATIONARY_WATER} false
+    Skills:
+        - potion{type=SLOW_FALLING;duration=40;level=4;p=false} @self
+        - setstance{stance=land} @self
+        - state{s=glide;r=true} @self
+        - state{s=land;li=2;lo=3} @self
+        - delay 20
+        - lunge{velocity=0.25;velocityY=1} @ModelPart{m=bluedragon;p=bone;offset=LOCAL;z=6;x=0}
+        - sound{s=minecraft:entity.ender_dragon.flap;v=10} @self
+
+WATERCHECKBROWN:
+    Conditions:
+        - onground false
+    TargetConditions:
+        - blocktype{type=STATIONARY_WATER} false
+    Skills:
+        - potion{type=SLOW_FALLING;duration=40;level=4;p=false} @self
+        - setstance{stance=land} @self
+        - state{s=glide;r=true} @self
+        - state{s=land;li=2;lo=3} @self
+        - delay 20
+        - lunge{velocity=0.25;velocityY=1} @ModelPart{m=browndragon;p=bone;offset=LOCAL;z=6;x=0}
+        - sound{s=minecraft:entity.ender_dragon.flap;v=10} @self
+
+WATERCHECKNORMAL:
+    Conditions:
+        - onground false
+    TargetConditions:
+        - blocktype{type=STATIONARY_WATER} false
+    Skills:
+        - potion{type=SLOW_FALLING;duration=40;level=4;p=false} @self
+        - setstance{stance=land} @self
+        - state{s=glide;r=true} @self
+        - state{s=land;li=2;lo=3} @self
+        - delay 20
+        - lunge{velocity=0.25;velocityY=1} @ModelPart{m=normaldragon;p=bone;offset=LOCAL;z=6;x=0}
+        - sound{s=minecraft:entity.ender_dragon.flap;v=10} @self
+
+WATERCHECKICE:
+    Conditions:
+        - onground false
+    TargetConditions:
+        - blocktype{type=STATIONARY_WATER} false
+    Skills:
+        - potion{type=SLOW_FALLING;duration=40;level=4;p=false} @self
+        - setstance{stance=land} @self
+        - state{s=glide;r=true} @self
+        - state{s=land;li=2;lo=3} @self
+        - delay 20
+        - lunge{velocity=0.25;velocityY=1} @ModelPart{m=icedragon;p=bone;offset=LOCAL;z=6;x=0}
+        - sound{s=minecraft:entity.ender_dragon.flap;v=10} @self
+
+WATERCHECKWHITE:
+    Conditions:
+        - onground false
+    TargetConditions:
+        - blocktype{type=STATIONARY_WATER} false
+    Skills:
+        - potion{type=SLOW_FALLING;duration=40;level=4;p=false} @self
+        - setstance{stance=land} @self
+        - state{s=glide;r=true} @self
+        - state{s=land;li=2;lo=3} @self
+        - delay 20
+        - lunge{velocity=0.25;velocityY=1} @ModelPart{m=whitedragon;p=bone;offset=LOCAL;z=6;x=0}
+        - sound{s=minecraft:entity.ender_dragon.flap;v=10} @self
+
+FLYMODEdragon:
+    Conditions:
+        - stance{s=flight} true
+    Skills:
+        - potion{type=SLOW_FALLING;duration=80;level=4;p=false} @self
+
+FLYMODEGRIFFIN:
+    Conditions:
+        - stance{s=flight} true
+    Skills:
+        - potion{type=SLOW_FALLING;duration=80;level=4;p=false} @self
+        - state{s=flap;li=2;lo=3} @self
+
+LOWALTGRIFFIN:
+    Conditions:
+        - altitude{a=<8} true
+        - stance{s=flight} true
+    Skills:
+        - state{s=flap;li=2;lo=3} @self
+        - lunge{velocity=0.25;velocityY=.25;repeat=10;repeatInterval=2} @ModelPart{m=griffin;p=bone;offset=LOCAL;z=6;x=0}
+        - delay 10
+        - lunge{velocity=0.5;velocityY=1{repeat=4;repeatInterval=10} @ModelPart{m=griffin;p=bone;offset=LOCAL;z=6;x=0}
+        - sound{s=minecraft:entity.ender_dragon.flap;v=10} @self
+
+LOWALTdragonRED:
+    Conditions:
+        - altitude{a=<8} true
+        - stance{s=flight} true
+    Skills:
+        - state{s=flap;li=2;lo=3} @self
+        - lunge{velocity=0.25;velocityY=.25;repeat=10;repeatInterval=2} @ModelPart{m=reddragon;p=bone;offset=LOCAL;z=6;x=0}
+        - delay 20
+        - lunge{velocity=0.5;velocityY=1{repeat=4;repeatInterval=10} @ModelPart{m=reddragon;p=bone;offset=LOCAL;z=6;x=0}
+        - sound{s=minecraft:entity.ender_dragon.flap;v=10} @self
+
+LOWALTdragonBLUE:
+    Conditions:
+        - altitude{a=<8} true
+        - stance{s=flight} true
+    Skills:
+        - state{s=flap;li=2;lo=3} @self
+        - lunge{velocity=0.25;velocityY=.25;repeat=10;repeatInterval=2} @ModelPart{m=bluedragon;p=bone;offset=LOCAL;z=6;x=0}
+        - delay 20
+        - lunge{velocity=0.5;velocityY=1{repeat=4;repeatInterval=10} @ModelPart{m=bluedragon;p=bone;offset=LOCAL;z=6;x=0}
+        - sound{s=minecraft:entity.ender_dragon.flap;v=10} @self
+
+LOWALTdragonBROWN:
+    Conditions:
+        - altitude{a=<8} true
+        - stance{s=flight} true
+    Skills:
+        - state{s=flap;li=2;lo=3} @self
+        - lunge{velocity=0.25;velocityY=.25;repeat=10;repeatInterval=2} @ModelPart{m=browndragon;p=bone;offset=LOCAL;z=6;x=0}
+        - delay 20
+        - lunge{velocity=0.5;velocityY=1{repeat=4;repeatInterval=10} @ModelPart{m=browndragon;p=bone;offset=LOCAL;z=6;x=0}
+        - sound{s=minecraft:entity.ender_dragon.flap;v=10} @self
+
+LOWALTdragonICE:
+    Conditions:
+        - altitude{a=<8} true
+        - stance{s=flight} true
+    Skills:
+        - state{s=flap;li=2;lo=3} @self
+        - lunge{velocity=0.25;velocityY=.25;repeat=10;repeatInterval=2} @ModelPart{m=icedragon;p=bone;offset=LOCAL;z=6;x=0}
+        - delay 20
+        - lunge{velocity=0.5;velocityY=1{repeat=4;repeatInterval=10} @ModelPart{m=icedragon;p=bone;offset=LOCAL;z=6;x=0}
+        - sound{s=minecraft:entity.ender_dragon.flap;v=10} @self
+
+LOWALTdragonWHITE:
+    Conditions:
+        - altitude{a=<8} true
+        - stance{s=flight} true
+    Skills:
+        - state{s=flap;li=2;lo=3} @self
+        - lunge{velocity=0.25;velocityY=.25;repeat=10;repeatInterval=2} @ModelPart{m=whitedragon;p=bone;offset=LOCAL;z=6;x=0}
+        - delay 20
+        - lunge{velocity=0.5;velocityY=1{repeat=4;repeatInterval=10} @ModelPart{m=whitedragon;p=bone;offset=LOCAL;z=6;x=0}
+        - sound{s=minecraft:entity.ender_dragon.flap;v=10} @self
+
+LOWALTdragonNORMAL:
+    Conditions:
+        - altitude{a=<8} true
+        - stance{s=flight} true
+    Skills:
+        - state{s=flap;li=2;lo=3} @self
+        - lunge{velocity=0.25;velocityY=.25;repeat=10;repeatInterval=2} @ModelPart{m=normaldragon;p=bone;offset=LOCAL;z=6;x=0}
+        - delay 20
+        - lunge{velocity=0.5;velocityY=1{repeat=4;repeatInterval=10} @ModelPart{m=normaldragon;p=bone;offset=LOCAL;z=6;x=0}
+        - sound{s=minecraft:entity.ender_dragon.flap;v=10} @self
+
+FLAPdragonRED:
+    Conditions:
+        - offgcd true
+        - stance{s=flight} true
+    Skills:
+        - clearThreat{} @self
+        - runaitargetselector{target=clear}
+        - state{s=flap;li=3;lo=5} @self
+        - lunge{velocity=0.25;velocityY=.25;repeat=10;repeatInterval=2} @ModelPart{m=reddragon;p=bone;offset=LOCAL;z=6;x=0}
+        - delay 20
+        - effect:spin{duration=1;velocity=10;repeat=10;repeatInterval=1} @self
+        - lunge{velocity=0.0;velocityY=1.5} @forward
+        - sound{s=minecraft:entity.ender_dragon.flap;v=10} @self
+
+FLAPGRIFFIN:
+    Conditions:
+        - offgcd true
+        - stance{s=flight} true
+    Skills:
+        - clearThreat{} @self
+        - runaitargetselector{target=clear}
+        - state{s=flap;li=3;lo=5} @self
+        - lunge{velocity=0.25;velocityY=.25;repeat=10;repeatInterval=2} @ModelPart{m=griffin;p=bone;offset=LOCAL;z=6;x=0}
+        - delay 20
+        - effect:spin{duration=1;velocity=10;repeat=10;repeatInterval=1} @self
+        - lunge{velocity=0.0;velocityY=1.5} @forward
+        - sound{s=minecraft:entity.ender_dragon.flap;v=10} @self
+
+FLAPdragonBLUE:
+    Conditions:
+        - offgcd true
+        - stance{s=flight} true
+    Skills:
+        - clearThreat{} @self
+        - runaitargetselector{target=clear}
+        - state{s=flap;li=3;lo=5} @self
+        - lunge{velocity=0.25;velocityY=.25;repeat=10;repeatInterval=2} @ModelPart{m=bluedragon;p=bone;offset=LOCAL;z=6;x=0}
+        - delay 20
+        - effect:spin{duration=1;velocity=10;repeat=10;repeatInterval=1} @self
+        - lunge{velocity=0.0;velocityY=1.5} @forward
+        - sound{s=minecraft:entity.ender_dragon.flap;v=10} @self
+
+FLAPdragonWHITE:
+    Conditions:
+        - offgcd true
+        - stance{s=flight} true
+    Skills:
+        - clearThreat{} @self
+        - runaitargetselector{target=clear}
+        - state{s=flap;li=3;lo=5} @self
+        - lunge{velocity=0.25;velocityY=.25;repeat=10;repeatInterval=2} @ModelPart{m=whitedragon;p=bone;offset=LOCAL;z=6;x=0}
+        - delay 20
+        - effect:spin{duration=1;velocity=10;repeat=10;repeatInterval=1} @self
+        - lunge{velocity=0.0;velocityY=1.5} @forward
+        - sound{s=minecraft:entity.ender_dragon.flap;v=10} @self
+
+FLAPdragonBROWN:
+    Conditions:
+        - offgcd true
+        - stance{s=flight} true
+    Skills:
+        - clearThreat{} @self
+        - runaitargetselector{target=clear}
+        - state{s=flap;li=3;lo=5} @self
+        - lunge{velocity=0.25;velocityY=.25;repeat=10;repeatInterval=2} @ModelPart{m=browndragon;p=bone;offset=LOCAL;z=6;x=0}
+        - delay 20
+        - effect:spin{duration=1;velocity=10;repeat=10;repeatInterval=1} @self
+        - lunge{velocity=0.0;velocityY=1.5} @forward
+        - sound{s=minecraft:entity.ender_dragon.flap;v=10} @self
+
+FLAPdragonICE:
+    Conditions:
+        - offgcd true
+        - stance{s=flight} true
+    Skills:
+        - clearThreat{} @self
+        - runaitargetselector{target=clear}
+        - state{s=flap;li=3;lo=5} @self
+        - lunge{velocity=0.25;velocityY=.25;repeat=10;repeatInterval=2} @ModelPart{m=icedragon;p=bone;offset=LOCAL;z=6;x=0}
+        - delay 20
+        - effect:spin{duration=1;velocity=10;repeat=10;repeatInterval=1} @self
+        - lunge{velocity=0.0;velocityY=1.5} @forward
+        - sound{s=minecraft:entity.ender_dragon.flap;v=10} @self
+
+FLAPdragonNORMAL:
+    Conditions:
+        - offgcd true
+        - stance{s=flight} true
+    Skills:
+        - clearThreat{} @self
+        - runaitargetselector{target=clear}
+        - state{s=flap;li=3;lo=5} @self
+        - lunge{velocity=0.25;velocityY=.25;repeat=10;repeatInterval=2} @ModelPart{m=normaldragon;p=bone;offset=LOCAL;z=6;x=0}
+        - delay 20
+        - effect:spin{duration=1;velocity=10;repeat=10;repeatInterval=1} @self
+        - lunge{velocity=0.0;velocityY=1.5} @forward
+        - sound{s=minecraft:entity.ender_dragon.flap;v=10} @self
+
+FLYINGpathcheckRED:
+    Conditions:
+        - stance{s=flight} true
+    Skills:
+        - totem{c=1;oS=FLYINGpathcheckTOTEM} @ModelPart{m=reddragon;p=bone;offset=LOCAL;z=6;x=0}
+
+FLYINGpathcheckGRIFFIN:
+    Conditions:
+        - stance{s=flight} true
+    Skills:
+        - totem{c=1;oS=FLYINGpathcheckTOTEM} @ModelPart{m=griffin;p=bone;offset=LOCAL;z=6;x=0}
+
+FLYINGpathcheckBLUE:
+    Conditions:
+        - stance{s=flight} true
+    Skills:
+        - totem{c=1;oS=FLYINGpathcheckTOTEM} @ModelPart{m=bluedragon;p=bone;offset=LOCAL;z=6;x=0}
+
+FLYINGpathcheckBROWN:
+    Conditions:
+        - stance{s=flight} true
+    Skills:
+        - totem{c=1;oS=FLYINGpathcheckTOTEM} @ModelPart{m=browndragon;p=bone;offset=LOCAL;z=6;x=0}
+
+FLYINGpathcheckWHITE:
+    Conditions:
+        - stance{s=flight} true
+    Skills:
+        - totem{c=1;oS=FLYINGpathcheckTOTEM} @ModelPart{m=whitedragon;p=bone;offset=LOCAL;z=6;x=0}
+
+FLYINGpathcheckICE:
+    Conditions:
+        - stance{s=flight} true
+    Skills:
+        - totem{c=1;oS=FLYINGpathcheckTOTEM} @ModelPart{m=icedragon;p=bone;offset=LOCAL;z=6;x=0}
+
+FLYINGpathcheckNORMAL:
+    Conditions:
+        - stance{s=flight} true
+    Skills:
+        - totem{c=1;oS=FLYINGpathcheckTOTEM} @ModelPart{m=normaldragon;p=bone;offset=LOCAL;z=6;x=0}
+
+FLYINGpathcheckTOTEM:
+    Skills:
+        - skill{s=FLYINGobstruction} @BlocksInRadius{radius=3;radiusy=1;noise=0;shape=sphere;onlyair=false;noair=true}
+
+FLYINGobstruction:
+    TargetConditions:
+        - blocktype{type=air,water} false
+    Skills:
+        - gcd{ticks=40} @self
+        - lunge{velocity=0.2;velocityY=0.1;repeat=10;repeatInterval=2} @forward
+        - state{s=turn;li=5;lo=3} @self
+        - effect:spin{duration=1;velocity=10} @self
+
+GLIDEdragonRED:
+    Conditions:
+        - altitude{a=>12} true
+        - stance{s=flight} true
+        - offgcd true
+    Skills:
+        - gcd{ticks=45} @self
+        - state{s=fly;li=2;lo=3} @self
+        - lunge{velocity=0.25;velocityY=0;repeat=40;repeatInterval=1} @ModelPart{m=reddragon;p=bone;offset=LOCAL;z=6;x=0}
+        - effect:spin{duration=40;velocity=1} @self .25
+        - effect:spin{duration=40;velocity=-2} @self .25
+
+GLIDEGRIFFIN:
+    Conditions:
+        - altitude{a=>12} true
+        - stance{s=flight} true
+        - offgcd true
+    Skills:
+        - gcd{ticks=45} @self
+        - state{s=fly;li=2;lo=3} @self
+        - lunge{velocity=0.25;velocityY=0;repeat=40;repeatInterval=1} @ModelPart{m=griffin;p=bone;offset=LOCAL;z=6;x=0}
+        - effect:spin{duration=40;velocity=1} @self .25
+        - effect:spin{duration=40;velocity=-2} @self .25
+
+GLIDEdragonBLUE:
+    Conditions:
+        - altitude{a=>12} true
+        - stance{s=flight} true
+        - offgcd true
+    Skills:
+        - gcd{ticks=45} @self
+        - state{s=fly;li=2;lo=3} @self
+        - lunge{velocity=0.25;velocityY=0;repeat=40;repeatInterval=1} @ModelPart{m=bluedragon;p=bone;offset=LOCAL;z=6;x=0}
+        - effect:spin{duration=40;velocity=1} @self .25
+        - effect:spin{duration=40;velocity=-2} @self .25
+
+GLIDEdragonICE:
+    Conditions:
+        - altitude{a=>12} true
+        - stance{s=flight} true
+        - offgcd true
+    Skills:
+        - gcd{ticks=45} @self
+        - state{s=fly;li=2;lo=3} @self
+        - lunge{velocity=0.25;velocityY=0;repeat=40;repeatInterval=1} @ModelPart{m=icedragon;p=bone;offset=LOCAL;z=6;x=0}
+        - effect:spin{duration=40;velocity=1} @self .25
+        - effect:spin{duration=40;velocity=-2} @self .25
+
+GLIDEdragonWHITE:
+    Conditions:
+        - altitude{a=>12} true
+        - stance{s=flight} true
+        - offgcd true
+    Skills:
+        - gcd{ticks=45} @self
+        - state{s=fly;li=2;lo=3} @self
+        - lunge{velocity=0.25;velocityY=0;repeat=40;repeatInterval=1} @ModelPart{m=whitedragon;p=bone;offset=LOCAL;z=6;x=0}
+        - effect:spin{duration=40;velocity=1} @self .25
+        - effect:spin{duration=40;velocity=-2} @self .25
+
+GLIDEdragonBROWN:
+    Conditions:
+        - altitude{a=>12} true
+        - stance{s=flight} true
+        - offgcd true
+    Skills:
+        - gcd{ticks=45} @self
+        - state{s=fly;li=2;lo=3} @self
+        - lunge{velocity=0.25;velocityY=0;repeat=40;repeatInterval=1} @ModelPart{m=browndragon;p=bone;offset=LOCAL;z=6;x=0}
+        - effect:spin{duration=40;velocity=1} @self .25
+        - effect:spin{duration=40;velocity=-2} @self .25
+
+GLIDEdragonNORMAL:
+    Conditions:
+        - altitude{a=>12} true
+        - stance{s=flight} true
+        - offgcd true
+    Skills:
+        - gcd{ticks=45} @self
+        - state{s=fly;li=2;lo=3} @self
+        - lunge{velocity=0.25;velocityY=0;repeat=40;repeatInterval=1} @ModelPart{m=normaldragon;p=bone;offset=LOCAL;z=6;x=0}
+        - effect:spin{duration=40;velocity=1} @self .25
+        - effect:spin{duration=40;velocity=-2} @self .25
+
+FLYINGturnaround:
+    Cooldown: 3
+    Conditions:
+        - incombat true
+        - stance{s=flight} true
+        - targetnotwithin{d=32} true
+    Skills:
+        - gcd{ticks=40} @self
+        - lunge{velocity=0.2;velocityY=0.1;repeat=20;repeatInterval=2} @forward
+        - state{s=flap;r=true} @self
+        - effect:spin{duration=15;velocity=10} @self
+
+dragonBREATHRED:
+    Conditions:
+        - stance{s=flight} true
+    Skills:
+        - effect:particles{p=flash;a=1;hs=.25;vs=.25} @ModelPart{m=reddragon;p=h_head2}
+        - missile{sE=false;ot=dragonBREATH_TICK;oE=dragonBREATH_HIT_GROUND;oH=BREATHdragonDAMAGE;v=12;i=1;hR=1;vR=1;in=0.75;sfo=5;in=50}
+        - message{m="&6&l<mob.name>&7 is using Dragon Breath!"} @PlayersInRadius{r=40}
+
+dragonBREATHBLUE:
+    Conditions:
+        - stance{s=flight} true
+    Skills:
+        - effect:particles{p=flash;a=1;hs=.25;vs=.25} @ModelPart{m=bluedragon;p=h_head2}
+        - missile{sE=false;ot=dragonBREATH_TICK;oE=dragonBREATH_HIT_GROUND;oH=BREATHdragonDAMAGE;v=12;i=1;hR=1;vR=1;in=0.75;sfo=5;in=50}
+        - message{m="&6&l<mob.name>&7 is using Dragon Breath!"} @PlayersInRadius{r=40}
+
+dragonBREATHICE:
+    Conditions:
+        - stance{s=flight} true
+    Skills:
+        - effect:particles{p=flash;a=1;hs=.25;vs=.25} @ModelPart{m=icedragon;p=h_head2}
+        - missile{sE=false;ot=dragonBREATH_TICK;oE=dragonBREATH_HIT_GROUND;oH=BREATHdragonDAMAGE;v=12;i=1;hR=1;vR=1;in=0.75;sfo=5;in=50}
+        - message{m="&6&l<mob.name>&7 is using Dragon Breath!"} @PlayersInRadius{r=40}
+
+dragonBREATHWHITE:
+    Conditions:
+        - stance{s=flight} true
+    Skills:
+        - effect:particles{p=flash;a=1;hs=.25;vs=.25} @ModelPart{m=whitedragon;p=h_head2}
+        - missile{sE=false;ot=dragonBREATH_TICK;oE=dragonBREATH_HIT_GROUND;oH=BREATHdragonDAMAGE;v=12;i=1;hR=1;vR=1;in=0.75;sfo=5;in=50}
+        - message{m="&6&l<mob.name>&7 is using Dragon Breath!"} @PlayersInRadius{r=40}
+
+dragonBREATHNORMAL:
+    Conditions:
+        - stance{s=flight} true
+    Skills:
+        - effect:particles{p=flash;a=1;hs=.25;vs=.25} @ModelPart{m=normaldragon;p=h_head2}
+        - missile{sE=false;ot=dragonBREATH_TICK;oE=dragonBREATH_HIT_GROUND;oH=BREATHdragonDAMAGE;v=12;i=1;hR=1;vR=1;in=0.75;sfo=5;in=50}
+        - message{m="&6&l<mob.name>&7 is using Dragon Breath!"} @PlayersInRadius{r=40}
+
+dragonBREATHBROWN:
+    Conditions:
+        - stance{s=flight} true
+    Skills:
+        - effect:particles{p=flash;a=1;hs=.25;vs=.25} @ModelPart{m=browndragon;p=h_head2}
+        - missile{sE=false;ot=dragonBREATH_TICK;oE=dragonBREATH_HIT_GROUND;oH=BREATHdragonDAMAGE;v=12;i=1;hR=1;vR=1;in=0.75;sfo=5;in=50}
+        - message{m="&6&l<mob.name>&7 is using Dragon Breath!"} @PlayersInRadius{r=40}
+
+dragonBREATH_TICK:
+    Skills:
+        - effect:particles{p=flame;a=25;hs=.25;vs=.25} @origin
+        - damage{a=4}
+        - ignite{ticks=20}
+
+dragonBREATH_HIT_GROUND:
+    Skills:
+        - effect:particles{p=soul;a=50;hS=1;vS=1}
+        - effect:sound{s=entity.generic.explode;v=1;p=0}
+        - damage{a=3;i=false}
+        - effect:blockmask{m=soul_sand;r=2;d=60}
+
+dragonBITEsync:
+    Skills:
+        - CancelEvent
+        - skill{s=dragonBITE} @self
+
+dragonBITE:
+    Conditions:
+        - onground true
+    TargetConditions:
+        - targetwithin{d=2} false
+    Cooldown: 2
+    Skills:
+        - look{headOnly=false;immediately=true;repeat=20;repeatInterval=1} @Target
+        - setAI{ai=false}
+        - state{s=attack} @self
+        - setspeed{speed=0;type=walking} @self
+        - delay 10
+        - totem{ch=15;oH=dragonBITEdamage;int=1;hR=2;vR=2;md=2;repeat=15;repeatInterval=1;hp=true} @Target
+        - delay 5
+        - message{m="&6&l<mob.name>&7 is using Bite!"} @PlayersInRadius{r=40}
+        - setspeed{speed=1.23;type=walking} @self
+        - setAI{ai=true}
+
+dragonBITEdamage:
+    Skills:
+        - damage{amount=1}
+        - effect:particles{p=reddust;color=#CC0000;amount=2;hS=.25;vS=1;speed=.01;size=5}
+        - effect:particles{particle=block;m=redstone_block;;amount=15;hS=.25;vS=1;speed=.01;size=5}
+        - delay 5
+        - throw{velocity=5}
+
+GRIFFINBITEsync:
+    Skills:
+        - CancelEvent
+        - randomskill{skills=GRIFFINBITE,GRIFFINBITE2} @self
+
+GRIFFINBITE:
+    Conditions:
+        - onground true
+    TargetConditions:
+        - targetwithin{d=2} false
+    Cooldown: 2
+    Skills:
+        - look{headOnly=false;immediately=true;repeat=20;repeatInterval=1} @Target
+        - setAI{ai=false}
+        - state{s=attack} @self
+        - delay 10
+        - totem{ch=15;oH=GRIFFINBITEdamage;int=1;hR=2;vR=2;md=2;repeat=15;repeatInterval=1;hp=true} @Target
+        - delay 5
+        - message{m="&6&l<mob.name>&7 is Attacking!"} @PlayersInRadius{r=40}
+        - setAI{ai=true}
+
+GRIFFINBITE2:
+    Conditions:
+        - onground true
+    TargetConditions:
+        - targetwithin{d=2} false
+    Cooldown: 2
+    Skills:
+        - look{headOnly=false;immediately=true;repeat=20;repeatInterval=1} @Target
+        - setAI{ai=false}
+        - state{s=attack2} @self
+        - delay 10
+        - totem{ch=15;oH=GRIFFINBITEdamage;int=1;hR=2;vR=2;md=2;repeat=15;repeatInterval=1;hp=true} @Target
+        - delay 5
+        - message{m="&6&l<mob.name>&7 is Attacking!"} @PlayersInRadius{r=40}
+        - setAI{ai=true}
+
+GRIFFINBITEdamage:
+    Skills:
+        - damage{amount=1}
+        - effect:particles{p=reddust;color=#CC0000;amount=2;hS=.25;vS=1;speed=.01;size=5}
+        - effect:particles{particle=block;m=redstone_block;;amount=15;hS=.25;vS=1;speed=.01;size=5}
+        - delay 5
+        - throw{velocity=5}
+
+dragonWHIPsyncRED:
+    Skills:
+        - CancelEvent
+        - skill{s=dragonWHIPRED} @self
+
+dragonWHIPsyncBLUE:
+    Skills:
+        - CancelEvent
+        - skill{s=dragonWHIPBLUE} @self
+
+dragonWHIPsyncWHITE:
+    Skills:
+        - CancelEvent
+        - skill{s=dragonWHIPWHITE} @self
+
+dragonWHIPsyncICE:
+    Skills:
+        - CancelEvent
+        - skill{s=dragonWHIPICE} @self
+
+dragonWHIPsyncNORMAL:
+    Skills:
+        - CancelEvent
+        - skill{s=dragonWHIPNORMAL} @self
+
+dragonWHIPsyncBROWN:
+    Skills:
+        - CancelEvent
+        - skill{s=dragonWHIPBROWN} @self
+
+dragonWHIPRED:
+    Conditions:
+        - onground true
+    TargetConditions:
+        - targetnotwithin{d=6} false
+    Cooldown: 2
+    Skills:
+        - state{s=tailslap} @self
+        - delay 10
+        - totem{ch=15;oH=dragonWHIPdamage;int=1;hR=2;vR=2;md=2;repeat=15;repeatInterval=1;hp=true} @ModelPart{m=reddragon;p=bone17}
+        - message{m="&6&l<mob.name>&7 is using Tail Whip!"} @PlayersInRadius{r=40}
+        - delay 10
+        - jump{velocity=0.25} @self
+
+GRIFFINWHIP:
+    Conditions:
+        - onground true
+    TargetConditions:
+        - targetnotwithin{d=6} false
+    Cooldown: 2
+    Skills:
+        - state{s=tailslap} @self
+        - setspeed{speed=0;type=walking} @self
+        - delay 20
+        - totem{ch=15;oH=GRIFFINWHIPdamage;int=1;hR=2;vR=2;md=2;repeat=15;repeatInterval=1;hp=true}
+        - message{m="&6&l<mob.name>&7 is using Tail Whip!"} @PlayersInRadius{r=40}
+        - setspeed{speed=1.23;type=walking} @self
+        - delay 10
+        - jump{velocity=0.25} @self
+
+GRIFFINKICK:
+    Conditions:
+        - onground true
+    TargetConditions:
+        - targetnotwithin{d=6} false
+    Cooldown: 2
+    Skills:
+        - state{s=kick} @self
+        - setspeed{speed=0;type=walking} @self
+        - delay 30
+        - totem{ch=15;oH=GRIFFINWHIPdamage;int=1;hR=2;vR=2;md=2;repeat=15;repeatInterval=1;hp=true}
+        - message{m="&6&l<mob.name>&7 is using Kick!"} @PlayersInRadius{r=40}
+        - setspeed{speed=1.23;type=walking} @self
+        - delay 10
+        - jump{velocity=0.25} @self
+
+GRIFFINWHIPsync:
+    Skills:
+        - CancelEvent
+        - randomskill{skills=GRIFFINWHIP,GRIFFINKICK} @self
+
+dragonWHIPBLUE:
+    Conditions:
+        - onground true
+    TargetConditions:
+        - targetnotwithin{d=6} false
+    Cooldown: 2
+    Skills:
+        - state{s=tailslap} @self
+        - delay 10
+        - totem{ch=15;oH=dragonWHIPdamage;int=1;hR=2;vR=2;md=2;repeat=15;repeatInterval=1;hp=true} @ModelPart{m=bluedragon;p=bone17}
+        - message{m="&6&l<mob.name>&7 is using Tail Whip!"} @PlayersInRadius{r=40}
+        - delay 10
+        - jump{velocity=0.25} @self
+
+dragonWHIPNORMAL:
+    Conditions:
+        - onground true
+    TargetConditions:
+        - targetnotwithin{d=6} false
+    Cooldown: 2
+    Skills:
+        - state{s=tailslap} @self
+        - delay 10
+        - totem{ch=15;oH=dragonWHIPdamage;int=1;hR=2;vR=2;md=2;repeat=15;repeatInterval=1;hp=true} @ModelPart{m=normaldragon;p=bone17}
+        - message{m="&6&l<mob.name>&7 is using Tail Whip!"} @PlayersInRadius{r=40}
+        - delay 10
+        - jump{velocity=0.25} @self
+
+dragonWHIPWHITE:
+    Conditions:
+        - onground true
+    TargetConditions:
+        - targetnotwithin{d=6} false
+    Cooldown: 2
+    Skills:
+        - state{s=tailslap} @self
+        - delay 10
+        - totem{ch=15;oH=dragonWHIPdamage;int=1;hR=2;vR=2;md=2;repeat=15;repeatInterval=1;hp=true} @ModelPart{m=whitedragon;p=bone17}
+        - message{m="&6&l<mob.name>&7 is using Tail Whip!"} @PlayersInRadius{r=40}
+        - delay 10
+        - jump{velocity=0.25} @self
+
+dragonWHIPICE:
+    Conditions:
+        - onground true
+    TargetConditions:
+        - targetnotwithin{d=6} false
+    Cooldown: 2
+    Skills:
+        - state{s=tailslap} @self
+        - delay 10
+        - totem{ch=15;oH=dragonWHIPdamage;int=1;hR=2;vR=2;md=2;repeat=15;repeatInterval=1;hp=true} @ModelPart{m=icedragon;p=bone17}
+        - message{m="&6&l<mob.name>&7 is using Tail Whip!"} @PlayersInRadius{r=40}
+        - delay 10
+        - jump{velocity=0.25} @self
+
+dragonWHIPBROWN:
+    Conditions:
+        - onground true
+    TargetConditions:
+        - targetnotwithin{d=6} false
+    Cooldown: 2
+    Skills:
+        - state{s=tailslap} @self
+        - delay 10
+        - totem{ch=15;oH=dragonWHIPdamage;int=1;hR=2;vR=2;md=2;repeat=15;repeatInterval=1;hp=true} @ModelPart{m=browndragon;p=bone17}
+        - message{m="&6&l<mob.name>&7 is using Tail Whip!"} @PlayersInRadius{r=40}
+        - delay 10
+        - jump{velocity=0.25} @self
+
+dragonWHIPdamage:
+    Skills:
+        - damage{amount=1}
+        - effect:particles{p=reddust;color=#CC0000;amount=10;hS=.25;vS=1;speed=.01;size=5}
+        - effect:particles{particle=block;m=redstone_block;;amount=15;hS=.25;vS=1;speed=.01;size=5}
+        - throw{velocity=5}
+
+GRIFFINWHIPdamage:
+    Skills:
+        - damage{amount=1}
+        - effect:particles{p=reddust;color=#CC0000;amount=10;hS=.25;vS=1;speed=.01;size=5}
+        - effect:particles{particle=block;m=redstone_block;;amount=15;hS=.25;vS=1;speed=.01;size=5}
+        - throw{velocity=5;velocityY=5}
+
+GRIFFINSTUN:
+    Skills:
+        - randomskill{skills=stun1,stun2,stun3,stun4,stun5,stun6,stun7,stun8,stun9,stun10,stun11,stun12,stun13,stun14,stun15,stun16,stun17,stun18,stun19,stun20,stun21,stun22}
+
+stun1:
+    Skills:
+        - stun{d=1} @self
+
+stun2:
+    Skills:
+        - stun{d=1} @self
+
+stun3:
+    Skills:
+        - stun{d=1} @self
+
+stun4:
+    Skills:
+        - stun{d=1} @self
+
+stun11:
+    Skills:
+        - stun{d=1} @self
+
+stun12:
+    Skills:
+        - stun{d=1} @self
+
+stun13:
+    Skills:
+        - stun{d=1} @self
+
+stun14:
+    Skills:
+        - stun{d=1} @self
+
+stun15:
+    Skills:
+        - stun{d=1} @self
+
+stun16:
+    Skills:
+        - stun{d=1} @self
+
+stun17:
+    Skills:
+        - stun{d=1} @self
+
+stun18:
+    Skills:
+        - stun{d=1} @self
+
+stun19:
+    Skills:
+        - stun{d=1} @self
+
+stun20:
+    Skills:
+        - stun{d=1} @self
+
+stun21:
+    Skills:
+        - stun{d=1} @self
+
+stun22:
+    Skills:
+        - stun{d=1} @self
+
+stun5:
+    Conditions:
+        - onground true
+    Skills:
+        - state{s=idlestance;li=3;lo=2} @self
+        - stun{d=100;ai=true;f=true} @self
+        - message{m="&6&l<mob.name>&7 is stunned!"} @PlayersInRadius{r=40}
+        - delay 20
+        - state{s=idlestance;li=3;lo=2} @self
+        - delay 20
+        - state{s=idlestance;li=3;lo=2} @self
+
+stun6:
+    Skills:
+        - stun{d=1} @self
+
+stun7:
+    Skills:
+        - stun{d=1} @self
+
+stun8:
+    Skills:
+        - stun{d=1} @self
+
+stun9:
+    Skills:
+        - stun{d=1} @self
+
+stun10:
+    Skills:
+        - stun{d=1} @self
+
+dragonDEATH:
+    Skills:
+        - effect:particles{p=reddust;color=#000000;amount=500;hS=2;vS=1;speed=.01;size=5} @self
+
+GRIFFINDEATH:
+    Skills:
+        - effect:particles{p=reddust;color=#000000;amount=500;hS=2;vS=1;speed=.01;size=5} @self
+
+dragonplayercheck:
+    Conditions:
+        - playerwithin{d=30} true
+        - incombat false
+    Skills:
+        - setstance{stance=alone;li=3;lo=3} @self
+
+GRIFFINplayercheck:
+    Conditions:
+        - playerwithin{d=30} true
+        - incombat false
+    Skills:
+        - setstance{stance=alone;li=3;lo=3} @self
+
+dragonmobAlone:
+    Conditions:
+        - incombat false
+        - stance{s=alone} true
+    Skills:
+        - state{s=alone} @self
+
+GRIFFINmobAlone:
+    Conditions:
+        - incombat false
+        - stance{s=alone} true
+    Skills:
+        - state{s=alone} @self
+
+dragonIdleStance:
+    Conditions:
+        - stance{s=alone} true
+        - incombat false
+        - playerwithin{d=10} false
+    Skills:
+        - state{s=alone;r=false} @self
+        - state{s=idlestance;li=3;lo=3} @self
+        - setspeed{speed=0;type=walking} @self
+
+GRIFFINIdleStance:
+    Conditions:
+        - stance{s=alone} true
+        - incombat false
+        - playerwithin{d=30} false
+    Skills:
+        - state{s=alone;r=false} @self
+        - state{s=idlestance;li=3;lo=3} @self
+        - setspeed{speed=0;type=walking} @self
+
+reddragonfallDEATH:
+    Skills:
+        - remove @self
+        - delay 1
+        - summon{type=reddragonfall;amount=1;radius=1} @self
+
+GRIFFINFALLDEATH:
+    Skills:
+        - remove @self
+        - summon{type=griffinfall;amount=1;radius=1} @self
+
+dragon:
+    Skills:
+        - randomskill{skills=Flamethrower,MeteorTest}
+
+MeteorTest:
+    Conditions:
+        - targetwithin{d=24} true
+    Skills:
+        - projectile{bulletType=ITEM;material=MAGMA_BLOCK;type=METEOR;i=1;d=200;mr=50;g=0.5;syo=0;sfo=0;sso=0;tyo=0;hp=false;se=false;hfs=15;oT=MeteorTestTick;oE=MeteorTestEnd;repeat=10;repeatinterval=10} @targetlocation
+        - state{s=firebreath;li=3;lo=2} @self
+        - message{m="&6&l<mob.name>&7 is using Meteor Shower!"} @PlayersInRadius{r=40}
+MeteorTestTick:
+    Skills:
+        - particles{particle=flame;a=10;hs=0.3;vs=0.3;s=0.05;y=0} @origin
+
+MeteorTestEnd:
+    Skills:
+        - particles{particle=flame;a=100;hs=1.5;vs=1;s=0.05;y=0} @origin
+        - damage{a=4} @EntitiesNearOrigin{r=6}
+        #  - setblock{m=AIR} @BlocksInRadius{r=3;no=true;shape=SPHERE;conditions=[  - blocktype{type=BEDROCK,LAVA,WATER} false ]}
+        #  - setblock{m=MAGMA_BLOCK;delay=5} @BlocksInRadius{r=4;no=true;shape=SPHERE;conditions=[  - blocktype{type=BEDROCK,LAVA,WATER} false ]}
+        - effect:blockmask{m=MAGMA_BLOCK;r=5;d=100}
+
+bluedragonfallDEATH_AIR:
+    Skills:
+        - remove @self
+        - delay 1
+        - summon{type=bluedragonfall;amount=1;radius=1} @self
+
+icedragonfallDEATH_AIR:
+    Skills:
+        - remove @self
+        - delay 1
+        - summon{type=icedragonfall;amount=1;radius=1} @self
+
+browndragonfallDEATH_AIR:
+    Skills:
+        - remove @self
+        - delay 1
+        - summon{type=browndragonfall;amount=1;radius=1} @self
+
+normaldragonfallDEATH_AIR:
+    Skills:
+        - remove @self
+        - delay 1
+        - summon{type=normaldragonfall;amount=1;radius=1} @self
+
+whitedragonfallDEATH_AIR:
+    Skills:
+        - remove @self
+        - delay 1
+        - summon{type=whitedragonfall;amount=1;radius=1} @self
+
+dragonLAND:
+    Cooldown: 10
+    Conditions:
+        - onground
+    Skills:
+        - throw{velocity=10;velocityY=3} @PIR{r=5}
+        - state{s=death} @self
+        - effect:particles{p=reddust;color=#000000;amount=500;hS=2;vS=1;speed=.01;size=5} @self
+        - remove @self
+
+GRIFFINLAND:
+    Cooldown: 10
+    Conditions:
+        - onground
+    Skills:
+        - throw{velocity=10;velocityY=3} @PIR{r=5}
+        - state{s=death} @self
+        - effect:particles{p=reddust;color=#000000;amount=500;hS=2;vS=1;speed=.01;size=5} @self
+        - remove @self
+
+jumpsmash:
+    Cooldown: 2.0
+    TargetConditions:
+        - targetwithin{d=10} true
+    Conditions:
+        - incombat true
+    Skills:
+        - CancelEvent
+        - defaultstate{t=walk;s=skill1} @self
+        - state{s=skill1;li=3;lo=2} @self
+        - setspeed{speed=0;type=walking} @self
+        - delay 20
+        - throw{v=15;vy=5} @PIR{r=10}
+        - damage{a=4} @PIR{r=5}
+        - effect:particles{p=hugeexplode;a=5;vs=0.5;hs=0.5;s=0;y=1} @Self
+        - effect:sound{s=entity.generic.explode;v=2;p=0.5} @Self
+        - effect:sound{s=entity.generic.explode;v=2;p=1;repeat=7;repeatInterval=2} @Self
+        - effect:particlering{p=largeexplode;a=40;vs=0.5;hs=0.5;s=0;y=0.3;points=20;radius=1} @Self
+        - delay 2
+        - effect:particlering{p=largeexplode;a=40;vs=0.5;hs=0.5;s=0;y=0.3;points=20;radius=3} @Self
+        - delay 2
+        - effect:particlering{p=largeexplode;a=40;vs=0.5;hs=0.5;s=0;y=0.3;points=20;radius=5} @Self
+        - delay 2
+        - effect:particlering{p=largeexplode;a=40;vs=0.5;hs=0.5;s=0;y=0.3;points=20;radius=7} @Self
+        - delay 2
+        - effect:particlering{p=largeexplode;a=40;vs=0.5;hs=0.5;s=0;y=0.3;points=20;radius=9} @Self
+        - delay 2
+        - effect:particlering{p=largeexplode;a=40;vs=0.5;hs=0.5;s=0;y=0.3;points=20;radius=11} @Self
+        - setspeed{speed=1.23;type=walking} @self
+        - defaultstate{t=walk;s=walk} @self
+        - potion{type=SLOW;duration=60;level=1;p=false;i=false} @eir{r=16}
+        - recoil{r=1;pitch=-3to-3} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=3to3} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=-3to-3} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=3to3} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=-2to-2} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=2to2} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=-2to-2} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=2to2} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=-1to-1} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=1to1} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=-1to-1} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=1to1} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=-1to-1} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=1to1} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=-1to-1} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=1to1} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=-1to-1} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=1to1} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=-1to-1} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=1to1} @pir{r=16}
+
+minotaurDeath:
+    Skills:
+        - state{s=death;li=3;lo=2} @self
+        - recoil{r=1;pitch=-3to-3} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=3to3} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=-3to-3} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=3to3} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=-2to-2} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=2to2} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=-2to-2} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=2to2} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=-1to-1} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=1to1} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=-1to-1} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=1to1} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=-1to-1} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=1to1} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=-1to-1} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=1to1} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=-1to-1} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=1to1} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=-1to-1} @pir{r=16}
+        - delay 1
+        - recoil{r=1;pitch=1to1} @pir{r=16}
+        - delay 140
+        - remove @self
+
+GriffinSkill1:
+    Conditions:
+        - stance{s=flight} true
+    Skills:
+        - state{s=whirlwind;li=3;lo=2} @self
+        - potion{type=SLOW;duration=40;lvl=10} @self
+        - delay 20
+        - projectile{onTick=xx-Tick;onHit=xx-Hit;v=5;i=1;hR=1;vR=1} @PIR{r=20}
+        - effect:sound{s=entity.blaze.shoot;v=0.8;p=0.01} @self
+        - projectile{onTick=griffinfeathertick;oH=griffinfeatherdamage;v=12;i=1;hR=4;vR=4;hnp=true;repeat=10;repeatInterval=1;sB=false;sE=false} @target
+
+xx-Tick:
+    Skills:
+        - effect:particles{p=largeexplode;amount=5;hSpread=0.1;vSpread=0.1;speed=0.1;yOffset=0} @origin
+xx-Hit:
+    Skills:
+        - ignite{ticks=100} @PlayersNearOrigin{r=2}
+        - damage{a=9} @Target
+        - throw{velocity=0.05;velocityY=0.05} @target
+        - effect:sound{s=entity.generic.explode;v=2;p=0.01} @target
+        - effect:sound{s=entity.generic.explode;v=2;p=0.01} @target
+        - effect:sound{s=entity.generic.explode;v=2;p=0.01} @target
+        - effect:sound{s=entity.generic.explode;v=2;p=0.01} @target
+        - potion{type=CONFUSION;duration=100;level=4} @target
+
+griffinfeathertick:
+    Skills:
+        - effect:particles{p=white_ash;amount=5;hSpread=3;vSpread=3;speed=0.1;yOffset=0} @origin
+
+griffinfeatherdamage:
+    Skills:
+        - damage{a=0.5} @Target
+
+mooseInit:
+    Skills:
+        - CancelEvent
+        - skill{s=mooseAttack1} @self
+
+mooseAttack1:
+    Cooldown: 2.0
+    Skills:
+        - state{s=attack;li=3;lo=2} @self
+        - delay 20
+        - totem{ch=3;onStart=mooseAttackDamage;int=1;hR=3;md=1} @Forward{f=0.5}
+        - effect:sound{s=entity.player.attack.sweep;v=0.5;p=0.8}
+
+mooseAttackDamage:
+    Skills:
+        - damage{amount=4} @target
+
+mooseDeath:
+    Skills:
+        - state{s=death;li=3;lo=2} @self
+        - delay 80
+        - remove @self
+
+animalrun:
+    Conditions:
+        - health{h=<20} true
+    Skills:
+        - defaultstate{t=walk;s=run} @self
+        - runaigoalselector{goal=clear}
+        - runaigoalselector{goal=fleeplayers}
+        - potion{type=SPEED;duration=400;level=2}
+        - delay 400
+        - runaigoalselector{goal=clear}
+        - runaigoalselector{goal=randomstroll}
+        - runaigoalselector{goal=float}
+        - runaigoalselector{goal=lookatplayers}
+        - runaigoalselector{goal=randomlookaround}
+
+deerrun:
+    Skills:
+        - defaultstate{t=walk;s=run} @self
+        - setspeed{speed=1.23;type=WALKING} @self
+        - runaigoalselector{goal=clear}
+        - runaigoalselector{goal=fleeplayers}
+        - potion{type=SPEED;duration=400;level=2}
+        - delay 400
+        - runaigoalselector{goal=clear}
+        - runaigoalselector{goal=randomstroll}
+        - runaigoalselector{goal=float}
+        - runaigoalselector{goal=lookatplayers}
+        - runaigoalselector{goal=randomlookaround}
+
+eatgrass:
+    TargetConditions:
+        - onblock{m=GRASS_BLOCK} true
+    Conditions:
+        - health{h=>20} true
+        - incombat false
+    Skills:
+        - state{s=eatgrass;li=3;lo=2} @self
+        - setspeed{speed=0;type=WALKING} @self
+        - delay 40
+        - setspeed{speed=1.23;type=WALKING} @self
+        - effect:blockmask{m=DIRT;d=1200} @Forward{f=2}

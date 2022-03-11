@@ -1,15 +1,8 @@
-import { Optional } from '@misc/for-now';
-import { User } from '../user/User.model';
+import { YmlFile } from '../yml/base/YmlFile';
 
-export type MmobBarebones = Omit<Mmob, 'createdBy' | 'collabs'>;
-
-export interface Mmob {
-    uuid: string;
-    createdBy: number;
-    collabs: number[];
-    title: string;
-}
-export interface MmobWithUser extends MmobBarebones {
-    createdBy: Optional<User>;
-    collabs: Optional<User>[];
+export class MMob {
+    yml: YmlFile;
+    getName() {
+        return this.yml.fileName;
+    }
 }
