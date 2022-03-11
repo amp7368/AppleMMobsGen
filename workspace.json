@@ -1,7 +1,9 @@
 {
-  "version": 2,
-  "projects": {
-    "m-mobs-gen": "apps/m-mobs-gen",
-    "m-mobs-gen-e2e": "apps/m-mobs-gen-e2e"
-  }
+    "version": 2,
+    "projects": {
+        "website": "apps/website",
+        "api-iomodel": "libs/api-iomodel",
+        "element-lib": "libs/element-lib",
+        "misc-for-now": "libs/misc-for-now"
+    }
 }
