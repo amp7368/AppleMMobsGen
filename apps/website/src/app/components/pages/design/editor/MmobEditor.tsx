@@ -3,15 +3,15 @@ import { ReactNode } from 'react';
 import { SectionEditor } from './SectionEditor';
 import { DesignPreview as SectionPreview } from './SectionPreview';
 import { DesignToolbox as SectionToolbox } from './SectionToolbox';
-import { Hunt } from '../../../../model/hunt/Hunt.model';
+import { Mmob } from '../../../../model/mmob/Mmob.model';
 
 function resizeBox(size: string, element: ReactNode) {
     return <Box width={size}>{element}</Box>;
 }
-export function HuntEditor(props: { hunt: Hunt }) {
+export function MmobEditor(props: { mmob: Mmob }) {
     return (
         <Stack direction="row">
-            {props.hunt.title}
+            {props.mmob.title}
             {resizeBox('25%', <SectionToolbox />)}
             {resizeBox('40%', <SectionEditor />)}
             {resizeBox('25%', <SectionPreview />)}

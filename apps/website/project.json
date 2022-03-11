@@ -13,7 +13,6 @@
                 "index": "apps/website/src/index.html",
                 "baseHref": "/",
                 "main": "apps/website/src/main.tsx",
-                "polyfills": "apps/website/src/polyfills.ts",
                 "tsConfig": "apps/website/tsconfig.app.json",
                 "assets": [
                     "apps/website/src/favicon.ico",

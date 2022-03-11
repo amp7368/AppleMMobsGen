@@ -19,9 +19,9 @@ export class BaseQueryEntity<
     }
     filterBy<T>(
         obsv: Observable<T[]>,
-        filterBy: (hunt: T) => boolean
+        filterBy: (mmob: T) => boolean
     ): Observable<T[]> {
-        return obsv.pipe(map((hunts: T[]) => hunts.filter(filterBy)));
+        return obsv.pipe(map((mmobs: T[]) => mmobs.filter(filterBy)));
     }
     filterByWithExtract<Original, Extracted>(
         obsv: Observable<Original>,

@@ -2,16 +2,16 @@ import { RouteInfo } from '../../../routes/RouteInfo';
 import { appQueryParams } from '../../../util/AppQueryParams';
 import { PageWrapper } from '../PageWrapper';
 import { DesignDefaultPage } from './default/DesignDefaultPage';
-import { huntQuery } from '../../../model/hunt/Hunt.query';
-import { HuntEditor } from './editor/HuntEditor';
+import { mmobQuery } from '../../../model/mmob/Mmob.query';
+import { MmobEditor } from './editor/MmobEditor';
 import { ObserveableToElement } from '@appleptr16/elemental';
 import { Optional } from '@misc/for-now';
-import { Hunt } from '../../../model/hunt/Hunt.model';
+import { Mmob } from '../../../model/mmob/Mmob.model';
 import { PrivateRouteInfo } from '../../../routes/PrivateRouteInfo';
 
-function mapToPage(hunt: Optional<Hunt>) {
-    console.log(hunt);
-    return hunt ? <HuntEditor hunt={hunt} /> : <DesignDefaultPage />;
+function mapToPage(mmob: Optional<Mmob>) {
+    console.log(mmob);
+    return mmob ? <MmobEditor mmob={mmob} /> : <DesignDefaultPage />;
 }
 export class DesignPage extends PageWrapper {
     override createRoute(): RouteInfo {
@@ -19,10 +19,10 @@ export class DesignPage extends PageWrapper {
     }
 
     override renderMainPage(): JSX.Element {
-        const queryHunt: string = appQueryParams().getQueryHunt() ?? '';
-        const huntObsv = huntQuery.selectEntity(queryHunt);
+        const queryMmob: string = appQueryParams().getQueryMmob() ?? '';
+        const mmobObsv = mmobQuery.selectEntity(queryMmob);
         return (
-            <ObserveableToElement original={huntObsv} mappingFn={mapToPage} />
+            <ObserveableToElement original={mmobObsv} mappingFn={mapToPage} />
         );
     }
 }

@@ -9,7 +9,7 @@ export class SiteQueryParams {
     }
     set(name: string, value?: string) {
         if (value) this.params.set(name, value);
-        else this.delete('hunt');
+        else this.delete('mmob');
         return this;
     }
     delete(name: string) {

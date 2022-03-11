@@ -1,30 +1,30 @@
 import { PropsJustChildren } from '@appleptr16/elemental';
 import { BoxProps, Box, Typography, Stack } from '@mui/material';
-import { Hunt } from 'apps/website/src/app/model/hunt/Hunt.model';
-import { huntQuery } from 'apps/website/src/app/model/hunt/Hunt.query';
+import { Mmob } from 'apps/website/src/app/model/mmob/Mmob.model';
+import { mmobQuery } from 'apps/website/src/app/model/mmob/Mmob.query';
 import { LazyElement, LazyOnEmitStrategy } from '../../../base/LazyElement';
 import { appQueryParams } from '../../../../util/AppQueryParams';
-import { HuntWithUser } from '../../../../model/hunt/Hunt.model';
+import { MmobWithUser } from '../../../../model/mmob/Mmob.model';
 
-function navTo(hunt: HuntWithUser) {
-    return () => appQueryParams().setQueryHunt(hunt.uuid).setLocation();
+function navTo(mmob: MmobWithUser) {
+    return () => appQueryParams().setQueryMmob(mmob.uuid).setLocation();
 }
 function OutlinedBox(props: PropsJustChildren & BoxProps) {
     return <Box {...props} color="primary.light" borderRadius={0} border={2} />;
 }
-function mapHuntToElement(hunt: HuntWithUser) {
+function mapMmobToElement(mmob: MmobWithUser) {
     return (
-        <OutlinedBox key={hunt.uuid} onClick={navTo(hunt)}>
+        <OutlinedBox key={mmob.uuid} onClick={navTo(mmob)}>
             <Typography variant="h6" color="primary.contrastText">
-                {hunt.title} , {hunt.createdBy?.username}
+                {mmob.title} , {mmob.createdBy?.username}
             </Typography>
         </OutlinedBox>
     );
 }
-function mapAllHuntsToElement(hunts: HuntWithUser[], i: number): JSX.Element {
+function mapAllMmobsToElement(mmobs: MmobWithUser[], i: number): JSX.Element {
     return (
         <Stack direction="column" spacing={1} key={i}>
-            {hunts.map(mapHuntToElement)}
+            {mmobs.map(mapMmobToElement)}
         </Stack>
     );
 }
@@ -37,22 +37,22 @@ function SharedWithYou() {
             </Typography>
             <LazyElement
                 onEmitStrategy={LazyOnEmitStrategy.REPLACE}
-                stream={huntQuery.sharedWithMe$}
-                mappingFn={mapAllHuntsToElement}
+                stream={mmobQuery.sharedWithMe$}
+                mappingFn={mapAllMmobsToElement}
             />
         </Stack>
     );
 }
-function YourHunts() {
+function YourMmobs() {
     return (
         <>
             <Typography fontSize="2rem" fontWeight="3">
-                Your Hunts
+                Your Mmobs
             </Typography>
             <LazyElement
                 onEmitStrategy={LazyOnEmitStrategy.REPLACE}
-                stream={huntQuery.createdByMe$}
-                mappingFn={mapAllHuntsToElement}
+                stream={mmobQuery.createdByMe$}
+                mappingFn={mapAllMmobsToElement}
             />
         </>
     );
@@ -70,7 +70,7 @@ export function DesignDefaultPage() {
                     <SharedWithYou />
                 </Box>
                 <Box width="30rem">
-                    <YourHunts />
+                    <YourMmobs />
                 </Box>
                 <Box width="30rem"></Box>
             </Stack>
