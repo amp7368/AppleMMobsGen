@@ -1,0 +1,73 @@
+{
+  "root": "apps/m-mobs-gen",
+  "sourceRoot": "apps/m-mobs-gen/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/m-mobs-gen",
+        "index": "apps/m-mobs-gen/src/index.html",
+        "baseHref": "/",
+        "main": "apps/m-mobs-gen/src/main.tsx",
+        "polyfills": "apps/m-mobs-gen/src/polyfills.ts",
+        "tsConfig": "apps/m-mobs-gen/tsconfig.app.json",
+        "assets": [
+          "apps/m-mobs-gen/src/favicon.ico",
+          "apps/m-mobs-gen/src/assets"
+        ],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/m-mobs-gen/src/environments/environment.ts",
+              "with": "apps/m-mobs-gen/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "m-mobs-gen:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "m-mobs-gen:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/m-mobs-gen/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/m-mobs-gen"],
+      "options": {
+        "jestConfig": "apps/m-mobs-gen/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

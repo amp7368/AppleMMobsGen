@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "m-mobs-gen": "apps/m-mobs-gen",
+    "m-mobs-gen-e2e": "apps/m-mobs-gen-e2e"
+  }
+}
