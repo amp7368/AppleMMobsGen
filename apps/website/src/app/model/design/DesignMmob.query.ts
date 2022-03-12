@@ -1,13 +1,11 @@
 import { Query } from '@datorama/akita';
-import { Observable } from 'rxjs';
 
-import { DesignMmobState } from './DesignMmob.model';
-import { DesignMmobStore, designMmobStore } from './DesignMmob.store';
+import { DesignMMobState } from './DesignMMob.model';
+import { DesignMMobStore, designMMobStore } from './DesignMMob.store';
 
-export class DesignMmobQuery extends Query<DesignMmobState> {
-    constructor(protected override store: DesignMmobStore) {
+export class DesignMMobQuery extends Query<DesignMMobState> {
+    constructor(protected override store: DesignMMobStore) {
         super(store);
     }
-    designMmob: Observable<DesignMmobState> = this.select();
 }
-export const designQuery = new DesignMmobQuery(designMmobStore);
+export const designQuery = new DesignMMobQuery(designMMobStore);

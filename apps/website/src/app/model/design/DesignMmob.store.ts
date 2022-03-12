@@ -1,14 +1,12 @@
 import { Store, StoreConfig } from '@datorama/akita';
 
-import { DesignMmobState } from './DesignMmob.model';
+import { DesignMMobState } from './DesignMMob.model';
 
 @StoreConfig({ name: 'designmmob' })
-export class DesignMmobStore extends Store<DesignMmobState> {
+export class DesignMMobStore extends Store<DesignMMobState> {
     constructor() {
-        super({
-            unsavedChanges: {},
-        });
+        super({});
     }
 }
 
-export const designMmobStore = new DesignMmobStore();
+export const designMMobStore = new DesignMMobStore();

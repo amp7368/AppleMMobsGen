@@ -1,60 +1,18 @@
-import { Optional } from '@misc/for-now';
-import { combineLatest, map, Observable } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 
 import { BaseQueryEntity } from '../BaseQueryEntity';
-import { sessionQuery } from '../myself/session/Session.query';
-import { SessionState } from '../myself/session/Session.store';
-import { User } from '../user/User.model';
-import { userQuery } from '../user/User.query';
-import { Mmob, MmobWithUser } from './Mmob.model';
-import { MmobState, MmobStore, mmobStore } from './Mmob.store';
+import { IMMob, MMob } from './MMob.model';
+import { MMobState, MMobStore, mmobStore } from './MMob.store';
 
-type PreJoiningUserMmob = [Mmob[], User[], SessionState];
-type JoinedUserMmob = [MmobWithUser[], SessionState];
-function doJoinUserMmob(props: PreJoiningUserMmob): JoinedUserMmob {
-    const [mmobs, users, session] = props;
-    const mappedMmobs = mmobs.map((mmob: Mmob): MmobWithUser => {
-        const createdBy: Optional<User> = users.find(
-            (user: User) => mmob.createdBy == user.id
-        );
-        const collabs: Optional<User>[] = users.filter((user: User) => {
-            return mmob.collabs.includes(user.id);
-        });
-        for (const collabId of mmob.collabs) {
-            if (!collabs.find((collab) => collab?.id === collabId))
-                collabs.push(undefined);
-        }
-        return { ...mmob, createdBy, collabs };
-    });
-    return [mappedMmobs, session];
-}
-export class MmobQuery extends BaseQueryEntity<MmobState> {
-    constructor(protected override store: MmobStore) {
+export class MMobQuery extends BaseQueryEntity<MMobState> {
+    constructor(protected override store: MMobStore) {
         super(store);
     }
-    private joinUser$: Observable<PreJoiningUserMmob> = combineLatest([
-        this.selectAll(),
-        userQuery.selectAll(),
-        sessionQuery.select(),
-    ]);
-
-    joinUserByMmob$: Observable<JoinedUserMmob> = this.joinUser$.pipe(
-        map(doJoinUserMmob)
+    selectAllMMob$: Observable<MMob[]> = this.selectAll().pipe(
+        map((mobs: IMMob[]) => mobs.map((mmob: IMMob) => MMob.create(mmob)))
     );
-
-    createdByMe$: Observable<MmobWithUser[]> = this.filterByWithExtract(
-        this.joinUserByMmob$,
-        ([mmobs]: JoinedUserMmob) => mmobs,
-        (mmob: MmobWithUser, [mmobs, session]: JoinedUserMmob) =>
-            mmob.createdBy?.id === session.userId
-    );
-    sharedWithMe$: Observable<MmobWithUser[]> = this.filterByWithExtract(
-        this.joinUserByMmob$,
-        ([mmobs]: JoinedUserMmob) => mmobs,
-        (mmob: MmobWithUser, [mmobs, session]: JoinedUserMmob) =>
-            !!mmob.collabs.find(
-                (collab: Optional<User>) => collab?.id === session.userId
-            )
-    );
+    selectMMob$(uuid: string) {
+        return this.selectEntity(uuid).pipe(map(MMob.createOpctional));
+    }
 }
-export const mmobQuery = new MmobQuery(mmobStore);
+export const mmobQuery = new MMobQuery(mmobStore);

@@ -24,6 +24,7 @@ export const appTheme = createTheme({
         },
         background: {
             default: '#0f032e',
+            paper: '#2b2b2b',
         },
         text: {
             primary: '#ffffff',

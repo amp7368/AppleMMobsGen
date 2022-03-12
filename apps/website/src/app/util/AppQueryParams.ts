@@ -1,15 +1,15 @@
 import { SiteQueryParams, siteQueryParams } from '@misc/for-now';
 
 enum AppQuery {
-    Mmob = 'mmob',
+    MMob = 'mmob',
 }
 export class AppQueryParams extends SiteQueryParams {
-    setQueryMmob(mmobUUID: string) {
-        this.set(AppQuery.Mmob, mmobUUID);
+    setQueryMMob(mmobUUID: string) {
+        this.set(AppQuery.MMob, mmobUUID);
         return this;
     }
-    getQueryMmob(): string | undefined {
-        return this.get(AppQuery.Mmob);
+    getQueryMMob(): string | undefined {
+        return this.get(AppQuery.MMob);
     }
 }
 export function appQueryParams() {

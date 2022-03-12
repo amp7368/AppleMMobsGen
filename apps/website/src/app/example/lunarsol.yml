@@ -1,0 +1,1313 @@
+viking:
+    Type: ZOMBIE
+    Display: 'Viking Marauder'
+    Health: 30
+    Faction: viking
+    AIGoalSelectors:
+        - 0 clear
+        - 1 meleeattack
+        - 2 randomstroll
+        - 3 float
+        - 4 lookatplayer
+        - 5 lookaround
+    AITargetSelectors:
+        - 0 clear
+        - 1 hurtbytarget
+        - 2 players
+    Skills:
+        - model{mid=viking;n=false;h=true} @self ~onSpawn
+        - skill{s=vikingInit;sync=true} @self ~onAttack
+        - skill{s=vikingHit;sync=true} @self ~onDamaged
+        - skill{s=vikingDeath;sync=true} @self ~onDeath
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0.23
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+egyptianraider:
+    Type: ZOMBIE
+    Display: 'Egyptian Raider'
+    Health: 30
+    Faction: egyptian
+    AIGoalSelectors:
+        - 0 clear
+        - 1 meleeattack
+        - 2 randomstroll
+        - 3 float
+        - 4 lookatplayer
+        - 5 lookaround
+    AITargetSelectors:
+        - 0 clear
+        - 1 hurtbytarget
+        - 2 players
+    Skills:
+        - model{mid=egyptianraider;n=false;h=true} @self ~onSpawn
+        - skill{s=egyptianraiderInit;sync=true} @self ~onAttack
+        - skill{s=egyptianraiderHit;sync=true} @self ~onDamaged
+        - skill{s=egyptianraiderDeath;sync=true} @self ~onDeath
+        - skill{s=playercheck} @self ~onTimer:40
+        - skill{s=mobAlone} @self ~onTimer:80
+        - skill{s=IdleStance} @self ~onTimer:20
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0.23
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+departedviking:
+    Type: ZOMBIE
+    Display: 'Departed Viking'
+    Health: 20
+    Faction: undead
+    AIGoalSelectors:
+        - 0 clear
+        - 1 meleeattack
+        - 2 randomstroll
+        - 3 float
+        - 4 lookatplayer
+        - 5 lookaround
+    AITargetSelectors:
+        - 0 clear
+        - 1 hurtbytarget
+        - 2 players
+    Skills:
+        - model{mid=departedviking;n=false;h=true} @self ~onSpawn
+        - skill{s=departedvikingInit;sync=true} @self ~onAttack
+        - skill{s=departedvikingHit;sync=true} @self ~onDamaged
+        - skill{s=departedvikingDeath;sync=true} @self ~onDeath
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0.23
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+mummy:
+    Type: ZOMBIE
+    Display: 'Mummy'
+    Health: 20
+    Faction: undead
+    AIGoalSelectors:
+        - 0 clear
+        - 1 meleeattack
+        - 2 randomstroll
+        - 3 float
+        - 4 lookatplayer
+        - 5 lookaround
+    AITargetSelectors:
+        - 0 clear
+        - 1 hurtbytarget
+        - 2 players
+    Skills:
+        - model{mid=mummy;n=false;h=true} @self ~onSpawn
+        - skill{s=mummyInit;sync=true} @self ~onAttack
+        - skill{s=mummyHit;sync=true} @self ~onDamaged
+        - skill{s=mummyDeath;sync=true} @self ~onDeath
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0.23
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+coyote:
+    Type: ZOMBIE
+    Display: 'Coyote'
+    Health: 15
+    Faction: hostileanimals
+    AIGoalSelectors:
+        - 0 clear
+        - 1 meleeattack
+        - 2 randomstroll
+        - 3 float
+        - 4 lookatplayer
+        - 5 lookaround
+    AITargetSelectors:
+        - 0 clear
+        - 1 hurtbytarget
+        - 2 players
+    Skills:
+        - model{mid=coyote;n=false;h=true} @self ~onSpawn
+        - skill{s=coyoteInit;sync=true} @self ~onAttack
+        - skill{s=coyoteHit;sync=true} @self ~onDamaged
+        - skill{s=coyoteDeath;sync=true} @self ~onDeath
+        - skill{s=playercheck} @self ~onTimer:40
+        - skill{s=mobAlone} @self ~onTimer:80
+        - skill{s=IdleStance} @self ~onTimer:20
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0.23
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+elephant:
+    Type: ZOMBIE
+    Display: 'Elephant'
+    Health: 50
+    Faction: animals
+    AIGoalSelectors:
+        - 0 clear
+        - 1 meleeattack
+        - 2 randomstroll
+        - 3 float
+        - 4 lookatplayer
+        - 5 lookaround
+    AITargetSelectors:
+        - 0 clear
+        - 1 hurtbytarget
+    Skills:
+        - model{mid=elephant2;n=false;h=true} @self ~onSpawn
+        - skill{s=elephantInit;sync=true} @self ~onAttack
+        - skill{s=elephantHit;sync=true} @self ~onDamaged
+        - skill{s=elephantDeath;sync=true} @self ~onDeath
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0.23
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+elephantride:
+    Type: PIG
+    Display: 'Elephant'
+    Health: 50
+    Faction: animals
+    AIGoalSelectors:
+        - 0 clear
+        - 1 meleeattack
+        - 2 randomstroll
+        - 3 float
+        - 4 lookatplayer
+        - 5 lookaround
+    AITargetSelectors:
+        - 0 clear
+        - 1 hurtbytarget
+    Skills:
+        - model{mid=elephantride;n=false;h=true;drive=true} @self ~onSpawn
+        - skill{s=elephantInit;sync=true} @self ~onAttack
+        - skill{s=elephantHit;sync=true} @self ~onDamaged
+        - skill{s=elephantDeath;sync=true} @self ~onDeath
+        - mountmodel{damagemount=false} @trigger ~onInteract
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0.23
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+timberwolf:
+    Type: ZOMBIE
+    Display: 'Timber Wolf Alpha'
+    Health: 30
+    Faction: hostileanimals
+    AIGoalSelectors:
+        - 0 clear
+        - 1 meleeattack
+        - 2 randomstroll
+        - 3 float
+        - 4 lookatplayer
+        - 5 lookaround
+    AITargetSelectors:
+        - 0 clear
+        - 1 hurtbytarget
+        - 2 players
+    Skills:
+        - model{mid=timberwolf;n=false;h=true} @self ~onSpawn
+        - skill{s=timberwolfInit;sync=true} @self ~onAttack
+        - skill{s=timberwolfHit;sync=true} @self ~onDamaged
+        - skill{s=timberwolfDeath;sync=true} @self ~onDeath
+        - skill{s=playercheck} @self ~onTimer:40
+        - skill{s=mobAlone} @self ~onTimer:80
+        - skill{s=IdleStance} @self ~onTimer:20
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0.8
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+timberwolfwhite:
+    Type: ZOMBIE
+    Display: 'Timber Wolf White'
+    Health: 30
+    Faction: hostileanimals
+    AIGoalSelectors:
+        - 0 clear
+        - 1 meleeattack
+        - 2 randomstroll
+        - 3 float
+        - 4 lookatplayer
+        - 5 lookaround
+    AITargetSelectors:
+        - 0 clear
+        - 1 hurtbytarget
+        - 2 players
+    Skills:
+        - model{mid=timberwolfwhite;n=false;h=true} @self ~onSpawn
+        - skill{s=timberwolfInit;sync=true} @self ~onAttack
+        - skill{s=timberwolfHit;sync=true} @self ~onDamaged
+        - skill{s=timberwolfDeath;sync=true} @self ~onDeath
+        - skill{s=playercheck} @self ~onTimer:40
+        - skill{s=mobAlone} @self ~onTimer:80
+        - skill{s=IdleStance} @self ~onTimer:20
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0.8
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+redpanda:
+    Type: ZOMBIE
+    Display: 'Red Panda'
+    Health: 10
+    Faction: hostileanimals
+    AIGoalSelectors:
+        - 0 clear
+        - 1 meleeattack
+        - 2 randomstroll
+        - 3 float
+        - 4 lookatplayer
+        - 5 lookaround
+    AITargetSelectors:
+        - 0 clear
+        - 1 hurtbytarget
+    Skills:
+        - model{mid=redpanda;n=false;h=true} @self ~onSpawn
+        - skill{s=redpandaInit;sync=true} @self ~onAttack
+        - skill{s=redpandaHit;sync=true} @self ~onDamaged
+        - skill{s=redpandaDeath;sync=true} @self ~onDeath
+        - skill{s=playercheck} @self ~onTimer:40
+        - skill{s=mobAlone} @self ~onTimer:80
+        - skill{s=IdleStance} @self ~onTimer:20
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0.23
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+armadillo:
+    Type: ZOMBIE
+    Display: 'Armadillo'
+    Health: 20
+    Faction: hostileanimals
+    AIGoalSelectors:
+        - 0 clear
+        - 1 meleeattack
+        - 2 randomstroll
+        - 3 float
+        - 4 lookatplayer
+        - 5 lookaround
+    AITargetSelectors:
+        - 0 clear
+        - 1 hurtbytarget
+    Skills:
+        - model{mid=armadillo;n=false;h=true} @self ~onSpawn
+        - skill{s=armadilloInit;sync=true} @self ~onAttack
+        - skill{s=armadilloHit;sync=true} @self ~onDamaged
+        - skill{s=armadilloDeath;sync=true} @self ~onDeath
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0.23
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+reddragon:
+    Type: RAVAGER
+    Display: 'Red Dragon'
+    Health: 1000
+    Faction: dragon
+    BossBar:
+        Enabled: true
+        Title: 'Dragon <caster.hp> <&fs> <caster.mhp>'
+        Range: 32
+        Color: PURPLE
+        Style: SOLID
+    Modules:
+        ThreatTable: true
+    Skills:
+        - effect:particles{p=sneeze;amount=15;hS=.25;vS=.25;speed=.01;size=5} @ModelPart{m=reddragon;p=h_head2} ~onTimer:5
+        - skill{s=dragonTAKEFLIGHT} @self ~onSpawn
+        - skill{s=dragonTAKEFLIGHT} @self ~onTimer:480
+        - skill{s=LOWALTdragonRED} @forward{f=0y=-10} ~onTimer:20
+        - skill{s=FLAPdragonRED} @self ~onTimer:20
+        - skill{s=FLYINGpathcheckRED} @self ~onTimer:2
+        - skill{s=GLIDEdragonRED} @self ~onTimer:40
+        - skill{s=FLYMODEdragon} @self ~onTimer:30
+        - skill{s=FLYINGturnaround} @self ~onTimer:20
+        - skill{s=LANDdragonRED} @self ~onTimer:240
+        - skill{s=BREATHdragon} @self ~onTimer:240
+        - skill{s=reddragonfallDEATH;sync=true} @self ~onDeath
+        - skill{s=dragonBREATHRED} @PlayersInRadius{r=32} ~onTimer:120
+        - randomskill{skills=dragonBITEsync,dragonWHIPsyncRED;sync=true} @self ~onAttack
+        - model{mid=reddragon;n=false;h=true} @self ~onSpawn
+        - skill{s=MeteorTest} @self ~onTimer:200
+    Options:
+        MovementSpeed: .15
+        Marker: false
+        FollowRange: 32
+        PreventOtherDrops: true
+
+bluedragon:
+    Type: RAVAGER
+    Display: 'Blue Dragon'
+    Health: 1000
+    Faction: dragon
+    BossBar:
+        Enabled: true
+        Title: 'Dragon <caster.hp> <&fs> <caster.mhp>'
+        Range: 32
+        Color: PURPLE
+        Style: SOLID
+    Modules:
+        ThreatTable: true
+    Skills:
+        - effect:particles{p=sneeze;amount=15;hS=.25;vS=.25;speed=.01;size=5} @ModelPart{m=bluedragon;p=h_head2} ~onTimer:5
+        - skill{s=dragonTAKEFLIGHT} @self ~onSpawn
+        - skill{s=dragonTAKEFLIGHT} @self ~onTimer:480
+        - skill{s=LOWALTdragonBLUE} @forward{f=0y=-10} ~onTimer:20
+        - skill{s=FLAPdragonBLUE} @self ~onTimer:20
+        - skill{s=FLYINGpathcheckBLUE} @self ~onTimer:2
+        - skill{s=GLIDEdragonBLUE} @self ~onTimer:40
+        - skill{s=FLYMODEdragon} @self ~onTimer:30
+        - skill{s=FLYINGturnaround} @self ~onTimer:20
+        - skill{s=LANDdragonBLUE} @self ~onTimer:240
+        - skill{s=BREATHdragon} @self ~onTimer:240
+        - skill{s=bluedragonfallDEATH_AIR} @self ~onDeath
+        - skill{s=dragonDEATH} @self ~onDeath
+        - skill{s=dragonBREATHBLUE} @PlayersInRadius{r=32} ~onTimer:120
+        - randomskill{skills=dragonBITEsync,dragonWHIPsyncBLUE;sync=true} @self ~onAttack
+        - model{mid=bluedragon;n=false;h=true} @self ~onSpawn
+        - skill{s=MeteorTest} @self ~onTimer:200
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+icedragon:
+    Type: RAVAGER
+    Display: 'Ice Dragon'
+    Health: 1000
+    Faction: dragon
+    BossBar:
+        Enabled: true
+        Title: 'Dragon <caster.hp> <&fs> <caster.mhp>'
+        Range: 32
+        Color: PURPLE
+        Style: SOLID
+    Modules:
+        ThreatTable: true
+    Skills:
+        - effect:particles{p=sneeze;amount=15;hS=.25;vS=.25;speed=.01;size=5} @ModelPart{m=icedragon;p=h_head2} ~onTimer:5
+        - skill{s=dragonTAKEFLIGHT} @self ~onSpawn
+        - skill{s=dragonTAKEFLIGHT} @self ~onTimer:480
+        - skill{s=LOWALTdragonICE} @forward{f=0y=-10} ~onTimer:20
+        - skill{s=FLAPdragonICE} @self ~onTimer:20
+        - skill{s=FLYINGpathcheckICE} @self ~onTimer:2
+        - skill{s=GLIDEdragonICE} @self ~onTimer:40
+        - skill{s=FLYMODEdragon} @self ~onTimer:30
+        - skill{s=FLYINGturnaround} @self ~onTimer:20
+        - skill{s=LANDdragonICE} @self ~onTimer:240
+        - skill{s=BREATHdragon} @self ~onTimer:240
+        - skill{s=icedragonfallDEATH_AIR} @self ~onDeath
+        - skill{s=dragonDEATH} @self ~onDeath
+        - skill{s=dragonBREATHICE} @PlayersInRadius{r=32} ~onTimer:120
+        - randomskill{skills=dragonBITEsync,dragonWHIPsyncICE;sync=true} @self ~onAttack
+        - model{mid=icedragon;n=false;h=true} @self ~onSpawn
+        - skill{s=MeteorTest} @self ~onTimer:200
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+browndragon:
+    Type: RAVAGER
+    Display: 'Brown Dragon'
+    Health: 1000
+    Faction: dragon
+    BossBar:
+        Enabled: true
+        Title: 'Dragon <caster.hp> <&fs> <caster.mhp>'
+        Range: 32
+        Color: PURPLE
+        Style: SOLID
+    Modules:
+        ThreatTable: true
+    Skills:
+        - effect:particles{p=sneeze;amount=15;hS=.25;vS=.25;speed=.01;size=5} @ModelPart{m=browndragon;p=h_head2} ~onTimer:5
+        - skill{s=dragonTAKEFLIGHT} @self ~onSpawn
+        - skill{s=dragonTAKEFLIGHT} @self ~onTimer:480
+        - skill{s=LOWALTdragonBROWN} @forward{f=0y=-10} ~onTimer:20
+        - skill{s=FLAPdragonBROWN} @self ~onTimer:20
+        - skill{s=FLYINGpathcheckBROWN} @self ~onTimer:2
+        - skill{s=GLIDEdragonBROWN} @self ~onTimer:40
+        - skill{s=FLYMODEdragon} @self ~onTimer:30
+        - skill{s=FLYINGturnaround} @self ~onTimer:20
+        - skill{s=LANDdragonBROWN} @self ~onTimer:240
+        - skill{s=BREATHdragon} @self ~onTimer:240
+        - skill{s=browndragonfallDEATH_AIR} @self ~onDeath
+        - skill{s=dragonDEATH} @self ~onDeath
+        - skill{s=dragonBREATHBROWN} @PlayersInRadius{r=32} ~onTimer:120
+        - randomskill{skills=dragonBITEsync,dragonWHIPsyncBROWN;sync=true} @self ~onAttack
+        - model{mid=browndragon;n=false;h=true} @self ~onSpawn
+        - skill{s=MeteorTest} @self ~onTimer:200
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+normaldragon:
+    Type: RAVAGER
+    Display: 'Dragon'
+    Health: 1000
+    Faction: dragon
+    BossBar:
+        Enabled: true
+        Title: 'Dragon <caster.hp> <&fs> <caster.mhp>'
+        Range: 32
+        Color: PURPLE
+        Style: SOLID
+    Modules:
+        ThreatTable: true
+    Skills:
+        - effect:particles{p=sneeze;amount=15;hS=.25;vS=.25;speed=.01;size=5} @ModelPart{m=normaldragon;p=h_head2} ~onTimer:5
+        - skill{s=dragonTAKEFLIGHT} @self ~onSpawn
+        - skill{s=dragonTAKEFLIGHT} @self ~onTimer:480
+        - skill{s=LOWALTdragonNORMAL} @forward{f=0y=-10} ~onTimer:20
+        - skill{s=FLAPdragonNORMAL} @self ~onTimer:20
+        - skill{s=FLYINGpathcheckNORMAL} @self ~onTimer:2
+        - skill{s=GLIDEdragonNORMAL} @self ~onTimer:40
+        - skill{s=FLYMODEdragon} @self ~onTimer:30
+        - skill{s=FLYINGturnaround} @self ~onTimer:20
+        - skill{s=LANDdragonNORMAL} @self ~onTimer:240
+        - skill{s=BREATHdragon} @self ~onTimer:240
+        - skill{s=normaldragonfallDEATH_AIR} @self ~onDeath
+        - skill{s=dragonDEATH} @self ~onDeath
+        - skill{s=dragonBREATHNORMAL} @PlayersInRadius{r=32} ~onTimer:120
+        - randomskill{skills=dragonBITEsync,dragonWHIPsyncNORMAL;sync=true} @self ~onAttack
+        - model{mid=normaldragon;n=false;h=true} @self ~onSpawn
+        - skill{s=MeteorTest} @self ~onTimer:200
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+whitedragon:
+    Type: RAVAGER
+    Display: 'White Dragon'
+    Health: 1000
+    Faction: dragon
+    BossBar:
+        Enabled: true
+        Title: 'Dragon <caster.hp> <&fs> <caster.mhp>'
+        Range: 32
+        Color: PURPLE
+        Style: SOLID
+    Modules:
+        ThreatTable: true
+    Skills:
+        - effect:particles{p=sneeze;amount=15;hS=.25;vS=.25;speed=.01;size=5} @ModelPart{m=whitedragon;p=h_head2} ~onTimer:5
+        - skill{s=dragonTAKEFLIGHT} @self ~onSpawn
+        - skill{s=dragonTAKEFLIGHT} @self ~onTimer:480
+        - skill{s=LOWALTdragonWHITE} @forward{f=0y=-10} ~onTimer:20
+        - skill{s=FLAPdragonWHITE} @self ~onTimer:20
+        - skill{s=FLYINGpathcheckWHITE} @self ~onTimer:2
+        - skill{s=GLIDEdragonWHITE} @self ~onTimer:40
+        - skill{s=FLYMODEdragon} @self ~onTimer:30
+        - skill{s=FLYINGturnaround} @self ~onTimer:20
+        - skill{s=LANDdragonWHITE} @self ~onTimer:240
+        - skill{s=BREATHdragon} @self ~onTimer:240
+        - skill{s=whitedragonfallDEATH_AIR} @self ~onDeath
+        - skill{s=dragonDEATH} @self ~onDeath
+        - skill{s=dragonBREATHWHITE} @PlayersInRadius{r=32} ~onTimer:120
+        - randomskill{skills=dragonBITEsync,dragonWHIPsyncWHITE;sync=true} @self ~onAttack
+        - model{mid=whitedragon;n=false;h=true} @self ~onSpawn
+        - skill{s=MeteorTest} @self ~onTimer:200
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+reddragonfall:
+    Type: ARMOR_STAND
+    Skills:
+        - model{mid=reddragonfall;n=false} @self ~onSpawn
+        - skill{s=dragonLAND} @self ~onTimer:1
+
+normaldragonfall:
+    Type: ARMOR_STAND
+    Skills:
+        - model{mid=normaldragonfall;n=false} @self ~onSpawn
+        - skill{s=dragonLAND} @self ~onTimer:1
+
+browndragonfall:
+    Type: ARMOR_STAND
+    Skills:
+        - model{mid=browndragonfall;n=false} @self ~onSpawn
+        - skill{s=dragonLAND} @self ~onTimer:1
+
+bluedragonfall:
+    Type: ARMOR_STAND
+    Skills:
+        - model{mid=bluedragonfall;n=false} @self ~onSpawn
+        - skill{s=dragonLAND} @self ~onTimer:1
+
+icedragonfall:
+    Type: ARMOR_STAND
+    Skills:
+        - model{mid=icedragonfall;n=false} @self ~onSpawn
+        - skill{s=dragonLAND} @self ~onTimer:1
+
+whitedragonfall:
+    Type: ARMOR_STAND
+    Skills:
+        - model{mid=whitedragonfall;n=false} @self ~onSpawn
+        - skill{s=dragonLAND} @self ~onTimer:1
+
+redpetdragon:
+    Type: RAVAGER
+    Display: 'Red Dragon'
+    Health: 500
+    Faction: pet
+    Skills:
+        - model{mid=redpetdragon;n=false;h=true} @self ~onSpawn
+        - skill{s=egyptianraiderInit;sync=true} @self ~onAttack
+        - skill{s=egyptianraiderHit;sync=true} @self ~onDamaged
+        - skill{s=egyptianraiderDeath;sync=true} @self ~onDeath
+        - skill{s=playercheck} @self ~onTimer:40
+        - skill{s=mobAlone} @self ~onTimer:80
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+bluepetdragon:
+    Type: RAVAGER
+    Display: 'blue Dragon'
+    Health: 500
+    Faction: pet
+    Skills:
+        - model{mid=bluepetdragon;n=false;h=true} @self ~onSpawn
+        - skill{s=egyptianraiderInit;sync=true} @self ~onAttack
+        - skill{s=egyptianraiderHit;sync=true} @self ~onDamaged
+        - skill{s=egyptianraiderDeath;sync=true} @self ~onDeath
+        - skill{s=playercheck} @self ~onTimer:40
+        - skill{s=mobAlone} @self ~onTimer:80
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+icepetdragon:
+    Type: RAVAGER
+    Display: 'Ice Dragon'
+    Health: 500
+    Faction: pet
+    Skills:
+        - model{mid=icepetdragon;n=false;h=true} @self ~onSpawn
+        - skill{s=egyptianraiderInit;sync=true} @self ~onAttack
+        - skill{s=egyptianraiderHit;sync=true} @self ~onDamaged
+        - skill{s=egyptianraiderDeath;sync=true} @self ~onDeath
+        - skill{s=playercheck} @self ~onTimer:40
+        - skill{s=mobAlone} @self ~onTimer:80
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+brownpetdragon:
+    Type: RAVAGER
+    Display: 'Brown Dragon'
+    Health: 500
+    Faction: pet
+    Skills:
+        - model{mid=brownpetdragon;n=false;h=true} @self ~onSpawn
+        - skill{s=egyptianraiderInit;sync=true} @self ~onAttack
+        - skill{s=egyptianraiderHit;sync=true} @self ~onDamaged
+        - skill{s=egyptianraiderDeath;sync=true} @self ~onDeath
+        - skill{s=playercheck} @self ~onTimer:40
+        - skill{s=mobAlone} @self ~onTimer:80
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+normalpetdragon:
+    Type: RAVAGER
+    Display: 'Dragon'
+    Health: 500
+    Faction: pet
+    Skills:
+        - model{mid=normalpetdragon;n=false;h=true} @self ~onSpawn
+        - skill{s=egyptianraiderInit;sync=true} @self ~onAttack
+        - skill{s=egyptianraiderHit;sync=true} @self ~onDamaged
+        - skill{s=egyptianraiderDeath;sync=true} @self ~onDeath
+        - skill{s=playercheck} @self ~onTimer:40
+        - skill{s=mobAlone} @self ~onTimer:80
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+whitedragonpet:
+    Type: ZOMBIE
+    Display: 'White Dragon'
+    Health: 500
+    Faction: pet
+    Skills:
+        - model{mid=whitepetdragon;n=false;h=true} @self ~onSpawn
+        - skill{s=egyptianraiderInit;sync=true} @self ~onAttack
+        - skill{s=egyptianraiderHit;sync=true} @self ~onDamaged
+        - skill{s=egyptianraiderDeath;sync=true} @self ~onDeath
+        - skill{s=playercheck} @self ~onTimer:40
+        - skill{s=mobAlone} @self ~onTimer:80
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+eggred:
+    Type: ZOMBIE
+    Display: 'Egg Red'
+    Health: 30
+    AIGoalSelectors:
+        - 0 clear
+    AITargetSelectors:
+        - 0 clear
+    Skills:
+        - model{mid=eggred;n=false;h=true} @self ~onSpawn
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+eggblue:
+    Type: ZOMBIE
+    Display: 'Egg Blue'
+    Health: 30
+    AIGoalSelectors:
+        - 0 clear
+    AITargetSelectors:
+        - 0 clear
+    Skills:
+        - model{mid=eggblue;n=false;h=true} @self ~onSpawn
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+eggwhite:
+    Type: ZOMBIE
+    Display: 'Egg White'
+    Health: 30
+    AIGoalSelectors:
+        - 0 clear
+    AITargetSelectors:
+        - 0 clear
+    Skills:
+        - model{mid=eggwhite;n=false;h=true} @self ~onSpawn
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+eggnormal:
+    Type: ZOMBIE
+    Display: 'Brown Dragon'
+    Health: 30
+    AIGoalSelectors:
+        - 0 clear
+    AITargetSelectors:
+        - 0 clear
+    Skills:
+        - model{mid=eggnormal;n=false;h=true} @self ~onSpawn
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+eggbrown:
+    Type: ZOMBIE
+    Display: 'Dragon'
+    Health: 30
+    AIGoalSelectors:
+        - 0 clear
+    AITargetSelectors:
+        - 0 clear
+    Skills:
+        - model{mid=eggbrown;n=false;h=true} @self ~onSpawn
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+eggice:
+    Type: ZOMBIE
+    Display: 'White Dragon'
+    Health: 30
+    AIGoalSelectors:
+        - 0 clear
+    AITargetSelectors:
+        - 0 clear
+    Skills:
+        - model{mid=eggice;n=false;h=true} @self ~onSpawn
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+eggnestred:
+    Type: ZOMBIE
+    Display: 'Egg Red'
+    Health: 30
+    AIGoalSelectors:
+        - 0 clear
+    AITargetSelectors:
+        - 0 clear
+    Skills:
+        - model{mid=eggnestred;n=false;h=true} @self ~onSpawn
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+eggnestblue:
+    Type: ZOMBIE
+    Display: 'Egg Blue'
+    Health: 30
+    AIGoalSelectors:
+        - 0 clear
+    AITargetSelectors:
+        - 0 clear
+    Skills:
+        - model{mid=eggnestblue;n=false;h=true} @self ~onSpawn
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+eggnestwhite:
+    Type: ZOMBIE
+    Display: 'Egg White'
+    Health: 30
+    AIGoalSelectors:
+        - 0 clear
+    AITargetSelectors:
+        - 0 clear
+    Skills:
+        - model{mid=eggnestwhite;n=false;h=true} @self ~onSpawn
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+eggnestnormal:
+    Type: ZOMBIE
+    Display: 'Brown Dragon'
+    Health: 30
+    AIGoalSelectors:
+        - 0 clear
+    AITargetSelectors:
+        - 0 clear
+    Skills:
+        - model{mid=eggnestnormal;n=false;h=true} @self ~onSpawn
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+eggnestbrown:
+    Type: ZOMBIE
+    Display: 'Dragon'
+    Health: 30
+    AIGoalSelectors:
+        - 0 clear
+    AITargetSelectors:
+        - 0 clear
+    Skills:
+        - model{mid=eggnestbrown;n=false;h=true} @self ~onSpawn
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+eggnestice:
+    Type: ZOMBIE
+    Display: 'White Dragon'
+    Health: 30
+    AIGoalSelectors:
+        - 0 clear
+    AITargetSelectors:
+        - 0 clear
+    Skills:
+        - model{mid=eggnestice;n=false;h=true} @self ~onSpawn
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+griffin:
+    Type: RAVAGER
+    Display: 'Griffin'
+    Health: 250
+    Faction: GRIFFIN
+    BossBar:
+        Enabled: true
+        Title: 'Griffin <caster.hp> <&fs> <caster.mhp>'
+        Range: 32
+        Color: WHITE
+        Style: SOLID
+    Modules:
+        ThreatTable: true
+    Skills:
+        - skill{s=GRIFFINTAKEFLIGHT} @self ~onSpawn
+        - skill{s=GRIFFINTAKEFLIGHT} @self ~onTimer:200
+        - skill{s=LOWALTGRIFFIN} @forward{f=0y=-10} ~onTimer:20
+        - skill{s=FLAPGRIFFIN} @self ~onTimer:20
+        - skill{s=FLYINGpathcheckGRIFFIN} @self ~onTimer:2
+        - skill{s=GLIDEGRIFFIN} @self ~onTimer:40
+        - skill{s=FLYMODEGRIFFIN} @self ~onTimer:30
+        - skill{s=FLYINGturnaround} @self ~onTimer:20
+        - skill{s=LANDGRIFFIN} @self ~onTimer:240
+        - skill{s=GRIFFINFALLDEATH;sync=true} @self ~onDeath
+        - skill{s=GriffinSkill1} @self ~onTimer:240
+        - randomskill{skills=GRIFFINBITEsync,GRIFFINWHIPsync;sync=true} @self ~onAttack
+        - model{mid=griffin;n=false;h=true} @self ~onSpawn
+        - skill{s=GRIFFINSTUN;sync=true} @self ~onDamaged
+    Options:
+        MovementSpeed: .15
+        Marker: false
+        FollowRange: 32
+        PreventOtherDrops: true
+
+griffinfall:
+    Type: ARMOR_STAND
+    Skills:
+        - model{mid=griffinfall;n=false} @self ~onSpawn
+        - skill{s=GRIFFINLAND} @self ~onTimer:1
+
+minotaur:
+    Type: ZOMBIE
+    Display: 'Minotaur'
+    Health: 150
+    Faction: MINOTAUR
+    BossBar:
+        Enabled: true
+        Title: 'Minotaur <caster.hp> <&fs> <caster.mhp>'
+        Range: 32
+        Color: BROWN
+        Style: SOLID
+    AIGoalSelectors:
+        - 0 clear
+        - 1 meleeattack
+        - 2 randomstroll
+        - 3 float
+        - 4 lookatplayer
+        - 5 lookaround
+    AITargetSelectors:
+        - 0 clear
+        - 1 hurtbytarget
+        - 2 players
+    Skills:
+        - model{mid=minotaur;n=false;h=true} @self ~onSpawn
+        - skill{s=minotaurInit;sync=true} @self ~onAttack
+        - skill{s=minotaurDeath;sync=true} @self ~onDeath
+        - skill{s=jumpsmash;sync=true} @self ~onTimer:400
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0.3
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+moose:
+    Type: ZOMBIE
+    Display: 'Red Panda'
+    Health: 40
+    Faction: hostileanimals
+    AIGoalSelectors:
+        - 0 clear
+        - 1 meleeattack
+        - 2 randomstroll
+        - 3 float
+        - 4 lookatplayer
+        - 5 lookaround
+    AITargetSelectors:
+        - 0 clear
+        - 1 hurtbytarget
+    Skills:
+        - model{mid=moose;n=false;h=true;drive=true} @self ~onSpawn
+        - skill{s=mooseInit;sync=true} @self ~onAttack
+        - skill{s=mooseDeath;sync=true} @self ~onDeath
+        - skill{s=animalrun;sync=true} @self ~onDamaged
+        - skill{s=eatgrass;sync=true} @self ~onTimer:400
+        - mountmodel{damagemount=false} @trigger ~onInteract
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0.23
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+elk:
+    Type: ZOMBIE
+    Display: 'Red Panda'
+    Health: 30
+    Faction: hostileanimals
+    AIGoalSelectors:
+        - 0 clear
+        - 1 meleeattack
+        - 2 randomstroll
+        - 3 float
+        - 4 lookatplayer
+        - 5 lookaround
+    AITargetSelectors:
+        - 0 clear
+        - 1 hurtbytarget
+    Skills:
+        - model{mid=elk;n=false;h=true} @self ~onSpawn
+        - skill{s=mooseInit;sync=true} @self ~onAttack
+        - skill{s=mooseDeath;sync=true} @self ~onDeath
+        - skill{s=animalrun;sync=true} @self ~onDamaged
+        - skill{s=eatgrass;sync=true} @self ~onTimer:400
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0.23
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+doe:
+    Type: ZOMBIE
+    Display: 'Red Panda'
+    Health: 20
+    Faction: hostileanimals
+    AIGoalSelectors:
+        - 0 clear
+        - 1 randomstroll
+        - 2 float
+        - 3 lookatplayer
+        - 4 lookaround
+    AITargetSelectors:
+        - 0 clear
+    Skills:
+        - model{mid=doe;n=false;h=true} @self ~onSpawn
+        - skill{s=mooseDeath;sync=true} @self ~onDeath
+        - skill{s=deerrun;sync=true} @self ~onDamaged
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0.13
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true
+
+deer:
+    Type: ZOMBIE
+    Display: 'Red Panda'
+    Health: 20
+    Faction: hostileanimals
+    AIGoalSelectors:
+        - 0 clear
+        - 1 randomstroll
+        - 2 float
+        - 3 lookatplayer
+        - 4 lookaround
+    AITargetSelectors:
+        - 0 clear
+    Skills:
+        - model{mid=deer;n=false;h=true} @self ~onSpawn
+        - skill{s=mooseInit;sync=true} @self ~onAttack
+        - skill{s=mooseDeath;sync=true} @self ~onDeath
+        - skill{s=deerrun;sync=true} @self ~onDamaged
+    Drops:
+        - exp 5
+    Options:
+        Silent: true
+        MovementSpeed: 0.13
+        PreventSunburn: true
+        AlwaysShowName: true
+        PreventRenaming: false
+        PreventLeashing: false
+        Despawn: true
+        Persistent: false
+        PreventOtherDrops: true

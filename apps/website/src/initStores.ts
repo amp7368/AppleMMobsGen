@@ -1,21 +1,30 @@
 import { v4 } from 'uuid';
-import { mmobQuery } from './app/model/mmob/Mmob.query';
-import { mmobStore } from './app/model/mmob/Mmob.store';
+import { mmobQuery } from './app/model/mmob/MMob.query';
+import { mmobStore } from './app/model/mmob/MMob.store';
 import { userStore } from './app/model/user/User.store';
 import { User } from './app/model/user/User.model';
-import { Mmob } from './app/model/mmob/Mmob.model';
+import { MMob, IMMob } from './app/model/mmob/MMob.model';
+import { IYmlFile } from './app/model/yml/base/YmlFile';
 
 if (mmobQuery.getCount() == 0) {
+    const authorId = v4();
+    userStore.add([{ id: authorId, username: 'appleptr16' }] as User[]);
     mmobStore.add([
-        { uuid: v4(), title: 'title1', createdBy: 2, collabs: [1] },
-        { uuid: v4(), title: 'title2', createdBy: 1, collabs: [] },
-        { uuid: v4(), title: 'title3', createdBy: 2, collabs: [] },
-        { uuid: v4(), title: 'title4', createdBy: 1, collabs: [] },
-        { uuid: v4(), title: 'title5', createdBy: 1, collabs: [2] },
-        { uuid: v4(), title: 'title6', createdBy: 2, collabs: [1] },
-    ] as Mmob[]);
-    userStore.add([
-        { id: 1, username: 'appleptr16' },
-        { id: 2, username: 'ojomFox' },
-    ] as User[]);
+        {
+            uuid: v4(),
+            yml: {
+                authorId: authorId,
+                fileName: 'mmob_test1',
+                root: [],
+            } as IYmlFile,
+        } as IMMob,
+        {
+            uuid: v4(),
+            yml: {
+                authorId: authorId,
+                fileName: 'mmob_test2',
+                root: [],
+            } as IYmlFile,
+        } as IMMob,
+    ]);
 }

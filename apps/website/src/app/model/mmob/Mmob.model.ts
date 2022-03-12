@@ -1,15 +1,22 @@
-import { Optional } from '@misc/for-now';
-import { User } from '../user/User.model';
+import { IYmlFile, YmlFile } from '../yml/base/YmlFile';
+import { Optional } from '../../../../../../libs/misc-for-now/src/lib/falsey/Questionable';
 
-export type MmobBarebones = Omit<Mmob, 'createdBy' | 'collabs'>;
-
-export interface Mmob {
+export interface IMMob {
     uuid: string;
-    createdBy: number;
-    collabs: number[];
-    title: string;
+    yml: IYmlFile;
 }
-export interface MmobWithUser extends MmobBarebones {
-    createdBy: Optional<User>;
-    collabs: Optional<User>[];
+export class MMob implements IMMob {
+    static create(mmob: IMMob): MMob {
+        return Object.assign(new MMob(), mmob);
+    }
+    static createOpctional(mmob: Optional<IMMob>): Optional<MMob> {
+        if (!mmob) return undefined;
+        return Object.assign(new MMob(), mmob);
+    }
+    uuid: string;
+    yml: YmlFile;
+    constructor() {}
+    getName() {
+        return this.yml.fileName;
+    }
 }

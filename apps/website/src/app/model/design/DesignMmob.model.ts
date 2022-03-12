@@ -1,6 +1,5 @@
-import { Mmob } from '../mmob/Mmob.model';
+import { MMob } from '../mmob/MMob.model';
 
-export interface DesignMmobState {
-    savedMmob?: string;
-    unsavedChanges: Partial<Mmob>;
+export interface DesignMMobState {
+    designMMob?: MMob;
 }

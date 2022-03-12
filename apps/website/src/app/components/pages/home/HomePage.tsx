@@ -1,4 +1,4 @@
-import { Button, Typography } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 
 import { clearAppStorage } from '../../../../persistState';
 import { RouteInfo } from '../../../routes/RouteInfo';
@@ -11,16 +11,16 @@ export class HomePage extends PageWrapper {
 
     override renderMainPage(): JSX.Element {
         return (
-            <>
-                <h1>Main Page</h1>
+            <Box>
+                <Typography color="secondary">Main page</Typography>
                 <Button
                     variant="contained"
                     color="secondary"
-                    onClick={() => clearAppStorage()}
+                    onClick={clearAppStorage}
                 >
                     <Typography fontWeight="bold">Reset storage</Typography>
                 </Button>
-            </>
+            </Box>
         );
     }
 }

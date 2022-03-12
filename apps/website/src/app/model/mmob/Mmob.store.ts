@@ -1,13 +1,9 @@
 import { EntityState, EntityStore, StoreConfig } from '@datorama/akita';
 
-import { Mmob } from './Mmob.model';
+import { IMMob } from './MMob.model';
 
-export interface MmobState extends EntityState<Mmob, string> {}
+export interface MMobState extends EntityState<IMMob, string> {}
 
 @StoreConfig({ name: 'mmob', idKey: 'uuid' })
-export class MmobStore extends EntityStore<MmobState> {
-    constructor() {
-        super();
-    }
-}
-export const mmobStore: MmobStore = new MmobStore();
+export class MMobStore extends EntityStore<MMobState> {}
+export const mmobStore: MMobStore = new MMobStore();
