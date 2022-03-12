@@ -27,11 +27,15 @@ export class SiteQueryParams {
 }
 
 export function siteQueryParams(): SiteQueryParams {
+    let search = window.location.search;
+    search = search.replace('?', '');
+    if (!search) return new SiteQueryParams(new Map());
+
     return new SiteQueryParams(
         new Map<string, string>(
-            window.location.search
-                .replace('?', '')
+            search
                 .split('&')
+                .filter((query) => query.includes('='))
                 .map((query) => query.split('=') as [string, string])
         )
     );

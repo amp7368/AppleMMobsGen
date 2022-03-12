@@ -1,44 +1,44 @@
 import { PropsJustChildren } from '@appleptr16/elemental';
 import { Box, BoxProps, Stack, Typography } from '@mui/material';
-import { mmobQuery } from 'apps/website/src/app/model/mmob/Mmob.query';
+import { mmobQuery } from 'apps/website/src/app/model/mmob/MMob.query';
 
 import { appQueryParams } from '../../../../util/AppQueryParams';
 import { LazyElement, LazyOnEmitStrategy } from '../../../base/LazyElement';
-import { MMob } from '../../../../model/mmob/Mmob.model';
+import { MMob } from '../../../../model/mmob/MMob.model';
 
 function navTo(mmob: MMob) {
-    return () => appQueryParams().setQueryMmob(mmob.getName()).setLocation();
+    return () => appQueryParams().setQueryMMob(mmob.uuid).setLocation();
 }
 function OutlinedBox(props: PropsJustChildren & BoxProps) {
     return <Box {...props} color="primary.light" borderRadius={0} border={2} />;
 }
-function mapMmobToElement(mmob: MMob) {
+function mapMMobToElement(mmob: MMob) {
     return (
-        <OutlinedBox key={mmob.getName()} onClick={navTo(mmob)}>
+        <OutlinedBox key={mmob.uuid} onClick={navTo(mmob)}>
             <Typography variant="h6" color="primary.contrastText">
-                {mmob.getName()}
+                {mmob.getName()}, {mmob.uuid}
             </Typography>
         </OutlinedBox>
     );
 }
-function mapAllMmobsToElement(mmobs: MMob[], i: number): JSX.Element {
+function mapAllMMobsToElement(mmobs: MMob[], i: number): JSX.Element {
     return (
         <Stack direction="column" spacing={1} key={i}>
-            {mmobs.map(mapMmobToElement)}
+            {mmobs.map(mapMMobToElement)}
         </Stack>
     );
 }
 
-function YourMmobs() {
+function YourMMobs() {
     return (
         <>
             <Typography fontSize="2rem" fontWeight="3">
-                Your Mmobs
+                Your MMobs
             </Typography>
             <LazyElement
                 onEmitStrategy={LazyOnEmitStrategy.REPLACE}
-                stream={mmobQuery.selectAll()}
-                mappingFn={mapAllMmobsToElement}
+                stream={mmobQuery.selectAllMMob$}
+                mappingFn={mapAllMMobsToElement}
             />
         </>
     );
@@ -53,7 +53,7 @@ export function DesignDefaultPage() {
                 spacing={2}
             >
                 <Box width="30rem">
-                    <YourMmobs />
+                    <YourMMobs />
                 </Box>
                 <Box width="30rem"></Box>
             </Stack>

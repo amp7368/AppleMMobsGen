@@ -3,9 +3,9 @@ import { PropsWithChildren, ReactNode } from 'react';
 import { SectionEditor } from './SectionEditor';
 import { DesignPreview as SectionPreview } from './SectionPreview';
 import { DesignToolbox as SectionToolbox } from './SectionToolbox';
-import { MMob } from '../../../../model/mmob/Mmob.model';
+import { MMob } from '../../../../model/mmob/MMob.model';
 
-export function MmobEditor(props: { mmob: MMob }) {
+export function MMobEditor(props: { mmob: MMob }) {
     return (
         <Stack
             boxSizing="border-box"
@@ -16,7 +16,6 @@ export function MmobEditor(props: { mmob: MMob }) {
             width="100%"
         >
             <Box flexGrow={1}>
-                {props.mmob.yml.fileName}
                 <SectionToolbox />
             </Box>
             <Box flexGrow={1}>

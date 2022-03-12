@@ -14,13 +14,7 @@ export function ObserveableToElement<T>(
     const [currentElement, setState] = useState<DisplayedElement>(null);
     useEffect(() => {
         const subscription: Subscription = props.original
-            .pipe(
-                distinctUntilChanged(),
-                tap((t) => {
-                    console.log(t);
-                }),
-                map(props.mappingFn)
-            )
+            .pipe(distinctUntilChanged(), map(props.mappingFn))
             .subscribe(setState);
         return () => subscription.unsubscribe();
     }, [props.original, props.mappingFn]);

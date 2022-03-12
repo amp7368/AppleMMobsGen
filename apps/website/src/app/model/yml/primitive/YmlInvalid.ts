@@ -1,2 +1,2 @@
 import { YmlField } from '../base/YmlField';
-export class YmlInvalid extends YmlField<string> {}
+export interface YmlInvalid extends YmlField<string> {}

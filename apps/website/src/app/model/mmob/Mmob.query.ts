@@ -1,15 +1,18 @@
-import { Optional } from '@misc/for-now';
-import { combineLatest, map, Observable } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 
 import { BaseQueryEntity } from '../BaseQueryEntity';
-import { sessionQuery } from '../myself/session/Session.query';
-import { User } from '../user/User.model';
-import { userQuery } from '../user/User.query';
-import { MmobState, MmobStore, mmobStore } from './Mmob.store';
+import { IMMob, MMob } from './MMob.model';
+import { MMobState, MMobStore, mmobStore } from './MMob.store';
 
-export class MmobQuery extends BaseQueryEntity<MmobState> {
-    constructor(protected override store: MmobStore) {
+export class MMobQuery extends BaseQueryEntity<MMobState> {
+    constructor(protected override store: MMobStore) {
         super(store);
     }
+    selectAllMMob$: Observable<MMob[]> = this.selectAll().pipe(
+        map((mobs: IMMob[]) => mobs.map((mmob: IMMob) => MMob.create(mmob)))
+    );
+    selectMMob$(uuid: string) {
+        return this.selectEntity(uuid).pipe(map(MMob.createOpctional));
+    }
 }
-export const mmobQuery = new MmobQuery(mmobStore);
+export const mmobQuery = new MMobQuery(mmobStore);

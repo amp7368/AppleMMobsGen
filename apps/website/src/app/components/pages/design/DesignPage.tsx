@@ -1,16 +1,18 @@
+import { ObserveableToElement } from '@appleptr16/elemental';
+import { Optional } from '@misc/for-now';
+import { tap, Observable } from 'rxjs';
+
+import { MMob } from '../../../model/mmob/MMob.model';
+import { mmobQuery } from '../../../model/mmob/MMob.query';
+import { PrivateRouteInfo } from '../../../routes/PrivateRouteInfo';
 import { RouteInfo } from '../../../routes/RouteInfo';
 import { appQueryParams } from '../../../util/AppQueryParams';
 import { PageWrapper } from '../PageWrapper';
 import { DesignDefaultPage } from './default/DesignDefaultPage';
-import { mmobQuery } from '../../../model/mmob/Mmob.query';
-import { MmobEditor } from './editor/MmobEditor';
-import { ObserveableToElement } from '@appleptr16/elemental';
-import { Optional } from '@misc/for-now';
-import { MMob } from '../../../model/mmob/Mmob.model';
-import { PrivateRouteInfo } from '../../../routes/PrivateRouteInfo';
+import { MMobEditor } from './editor/MMobEditor';
 
 function mapToPage(mmob: Optional<MMob>) {
-    return mmob ? <MmobEditor mmob={mmob} /> : <DesignDefaultPage />;
+    return mmob ? <MMobEditor mmob={mmob} /> : <DesignDefaultPage />;
 }
 export class DesignPage extends PageWrapper {
     override createRoute(): RouteInfo {
@@ -18,10 +20,12 @@ export class DesignPage extends PageWrapper {
     }
 
     override renderMainPage(): JSX.Element {
-        const queryMmob: string = appQueryParams().getQueryMmob() ?? '';
-        const mmobObsv = mmobQuery.selectEntity(queryMmob);
+        const queryMMob: string = appQueryParams().getQueryMMob() ?? '';
         return (
-            <ObserveableToElement original={mmobObsv} mappingFn={mapToPage} />
+            <ObserveableToElement
+                original={mmobQuery.selectMMob$(queryMMob)}
+                mappingFn={mapToPage}
+            />
         );
     }
 }

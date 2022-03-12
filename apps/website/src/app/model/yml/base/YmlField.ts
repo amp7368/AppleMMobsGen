@@ -1,8 +1,4 @@
-export class YmlField<Element> {
+export interface YmlField<Element> {
     key: string;
     element: Element;
-    constructor(key: string, element: Element) {
-        this.key = key;
-        this.element = element;
-    }
 }

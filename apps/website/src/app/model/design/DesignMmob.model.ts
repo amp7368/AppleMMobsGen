@@ -1,5 +1,5 @@
-import { MMob } from '../mmob/Mmob.model';
+import { MMob } from '../mmob/MMob.model';
 
-export interface DesignMmobState {
-    designMmob?: MMob;
+export interface DesignMMobState {
+    designMMob?: MMob;
 }
